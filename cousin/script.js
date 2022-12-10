@@ -52,11 +52,14 @@ for (let j=0; j<typed.length; j+=1){
 }
 
 function autoScroll(elem, num, letter){
-  setInterval(function(){
-    let options = document.getElementById(elem);
-    var style = window.getComputedStyle(options, null).getPropertyValue('height');
-    var optionHeight = parseFloat(style); 
+  let options = document.getElementById(elem);
+  let style = window.getComputedStyle(options, null).getPropertyValue('height');
+  let optionHeight = parseFloat(style); 
+  setInterval(function(){  
     options.scroll({ top: ran(letter.length)*optionHeight, left: 0, behavior: 'smooth' });
   }, 2000) 
 }
 function ran(num){ return Math.floor(Math.random()*num); }
+
+
+

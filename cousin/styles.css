@@ -1,5 +1,6 @@
 :root {
   --fontSize: 100px;
+  --lineHeight: 1.25;
 }
 @font-face{
   font-family: FreeSans;
@@ -14,12 +15,12 @@ body{
   flex-wrap: wrap;
 }
 .letter{
-  line-height: 1.25;
+  line-height: var(--lineHeight);
   width: fit-content;
-  height: calc(var(--fontSize)*1.5);
+  height: calc(var(--fontSize)*var(--lineHeight));
   padding: 0;
-  font-size:  var(--fontSize);
-  overflow: scroll;
+  font-size: var(--fontSize);
+  overflow-y: scroll;
 }
 .options{
   height: 100%;
@@ -29,25 +30,3 @@ body{
 .space{
   width: calc(var(--fontSize)*0.5);
 }
-
-
-/* width */
-/*::-webkit-scrollbar {
-  width: 8px;
-}*/
-
-/* Track */
-/*::-webkit-scrollbar-track {
-  opacity:0;
-}*/
- 
-/* Handle */
-/*::-webkit-scrollbar-thumb {
-  background: #aaa; 
-  border-radius:4px;
-}*/
-
-/* Handle on hover */
-/*::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}*/
