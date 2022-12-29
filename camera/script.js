@@ -39,27 +39,50 @@ function createLetter(letter){
 }
 
 
-
-
 const constraints = {
 	audio: false,
 	video: { facingMode: "user", frameRate: { min: 20, ideal: 30, max: 60 }}
 };
 
-navigator.mediaDevices.getUserMedia(constraints)
-  .then((mediaStream) => {
-    const video = document.querySelectorAll('video');
-    for(let elements of video){
-    	elements.srcObject = mediaStream;
-    	elements.onloadedmetadata = () => {
-      		elements.play();
-    	};
-    }
-  })
-  .catch((err) => {
-    // always check for errors at the end.
-    console.error(`${err.name}: ${err.message}`);
-  });
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices
+    .getUserMedia(constraints)
+    .then((stream) => {
+      var vids = document.querySelectorAll("video");
+      vids.forEach((vid) => {
+        vid.srcObject = stream;
+        vid.onloadedmetadata = () => {
+          vid.play();
+        };
+      });
+    })
+    .catch((err) => {
+      console.log("getUserMedia", err);
+    });
+}
+
+
+
+
+// const constraints = {
+// 	audio: false,
+// 	video: { facingMode: "user", frameRate: { min: 20, ideal: 30, max: 60 }}
+// };
+
+// navigator.mediaDevices.getUserMedia(constraints)
+//   .then((mediaStream) => {
+//     const video = document.querySelectorAll('video');
+//     for(let elements of video){
+//     	elements.srcObject = mediaStream;
+//     	elements.onloadedmetadata = () => {
+//       		elements.play();
+//     	};
+//     }
+//   })
+//   .catch((err) => {
+//     // always check for errors at the end.
+//     console.error(`${err.name}: ${err.message}`);
+//   });
 
 // const constraints2 = {
 // 	audio: false,
