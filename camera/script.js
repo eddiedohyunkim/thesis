@@ -44,21 +44,18 @@ const constraints = {
 	video: { facingMode: "user", frameRate: { min: 20, ideal: 30, max: 60 }}
 };
 
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices
-    .getUserMedia(constraints)
-    .then((stream) => {
-      var vids = document.querySelectorAll("video");
-      vids.forEach((vid) => {
-        vid.srcObject = stream;
-        vid.onloadedmetadata = () => {
-          vid.play();
-        };
-      });
-    })
-    .catch((err) => {
-      console.log("getUserMedia", err);
-    });
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+	navigator.mediaDevices.getUserMedia(constraints)
+		.then((stream) => {
+			var vids = document.querySelectorAll("video");
+			vids.forEach((vid) => {
+				vid.srcObject = stream;
+				vid.onloadedmetadata = () => { vid.play(); };
+			});
+		})
+		.catch((err) => {
+			console.log("getUserMedia", err);
+		});
 }
 
 
