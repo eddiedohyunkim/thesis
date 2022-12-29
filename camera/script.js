@@ -61,22 +61,22 @@ navigator.mediaDevices.getUserMedia(constraints)
     console.error(`${err.name}: ${err.message}`);
   });
 
-const constraints2 = {
-	audio: false,
-	video: { facingMode: "user", frameRate: { min: 3, ideal: 3, max: 3 }}
-};
+// const constraints2 = {
+// 	audio: false,
+// 	video: { facingMode: "user", frameRate: { min: 3, ideal: 3, max: 3 }}
+// };
 
-navigator.mediaDevices.getUserMedia(constraints2)
-  .then((mediaStream) => {
-    const video2 = document.querySelectorAll('.video2');
-    for(let elements of video2){
-    	elements.srcObject = mediaStream;
-    	elements.onloadedmetadata = () => {
-      		elements.play();
-    	};
-    }
-  })
-  .catch((err) => {
-    // always check for errors at the end.
-    console.error(`${err.name}: ${err.message}`);
-  });
+// navigator.mediaDevices.getUserMedia(constraints2)
+//   .then((mediaStream) => {
+//     const video2 = document.querySelectorAll('.video2');
+//     for(let elements of video2){
+//     	elements.srcObject = mediaStream;
+//     	elements.onloadedmetadata = () => {
+//       		elements.play();
+//     	};
+//     }
+//   })
+//   .catch((err) => {
+//     // always check for errors at the end.
+//     console.error(`${err.name}: ${err.message}`);
+//   });
