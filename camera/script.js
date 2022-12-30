@@ -40,59 +40,41 @@ function createLetter(letter){
 
 
 const constraints = {
-	audio: false,
-	video: { facingMode: "user", frameRate: { min: 20, ideal: 30, max: 60 }}
+	video:{
+		facingMode: "user", 
+		frameRate: { min: 20, ideal: 30, max: 60 }
+	}
 };
-
 const constraints2 = {
-	audio: false,
-	video: { facingMode: "user", frameRate: { min: 3, ideal: 3, max: 3 }}
+	facingMode: "user", 
+	frameRate: { min: 3, ideal: 3, max: 3 }
 };
 
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+	// navigator.mediaDevices.getUserMedia({video:true})
 	navigator.mediaDevices.getUserMedia(constraints)
 		.then((stream) => {
-			var vids = document.querySelectorAll(".video1");
+			const vids = document.querySelectorAll(".video1");
 			vids.forEach((vid) => {
 				vid.srcObject = stream;
-				vid.onloadedmetadata = () => { vid.play(); };
 				vid.defaultMuted = true;
-				vid.setAttribute('playsinline', '');
+				vid.setAttribute('playsinline', 'true');
+				vid.onloadedmetadata = () => { vid.play(); };
 			});
+
+			const newStream = stream.clone();
+			const vids2 = document.querySelectorAll(".video2");
+			vids2.forEach( 
+				async function (vid){
+					await newStream.getVideoTracks()[0].applyConstraints(constraints2);
+					vid.srcObject = newStream;
+					vid.defaultMuted = true;
+					vid.setAttribute('playsinline', 'true');
+					vid.onloadedmetadata = () => { vid.play(); };
+				}
+			);
 		})
 		.catch((err) => {
 			console.log("getUserMedia", err);
 		});
-
-	navigator.mediaDevices.getUserMedia(constraints2)
-		.then((stream) => {
-			var vids = document.querySelectorAll(".video2");
-			vids.forEach((vid) => {
-				vid.srcObject = stream;
-				vid.onloadedmetadata = () => { vid.play(); };
-				vid.defaultMuted = true;
-				vid.setAttribute('playsinline', '');
-			});
-		})
-		.catch((err) => {
-			console.log("getUserMedia", err);
-		});	
 }
-
-
-
-
-// navigator.mediaDevices.getUserMedia(constraints2)
-//   .then((mediaStream) => {
-//     const video2 = document.querySelectorAll('.video2');
-//     for(let elements of video2){
-//     	elements.srcObject = mediaStream;
-//     	elements.onloadedmetadata = () => {
-//       		elements.play();
-//     	};
-//     }
-//   })
-//   .catch((err) => {
-//     // always check for errors at the end.
-//     console.error(`${err.name}: ${err.message}`);
-//   });
