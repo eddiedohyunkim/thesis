@@ -20,7 +20,7 @@
 <metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  bottomLeftOrigin="true" height="364.5" width="512.9" x="-174.9" y="-209"></sliceSourceBounds>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="76.6" width="67.6" x="0" y="0"></sliceSourceBounds>
 		<optimizationSettings>
 			<targetSettings  fileFormat="PNG24Format" targetSettingsID="0">
 				<PNG24Format  filtered="false" interlaced="false" matteColor="#FFFFFF" noMatteColor="false" transparency="true">
@@ -29,7 +29,7 @@
 		</optimizationSettings>
 	</sfw>
 </metadata>
-<rect x="-175.1" y="-84" class="st0" width="512.9" height="364.5"/>
+<rect y="-5.1" class="st0" width="50.2" height="76.6"/>
 <g class="st1">
 	<path d="M43.3,57.1l-8.8-41l-8.6,41h-9.7L1.4,4.6h11.4L21,43.9l8.1-39.3h10.7L48.3,44l7.8-39.4h11.4L53.1,57.1H43.3z"/>
 </g>

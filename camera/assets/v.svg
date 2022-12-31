@@ -11,8 +11,8 @@
 	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
 ]>
 <svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50.2 71.5"
-	 style="enable-background:new 0 0 50.2 71.5;" xml:space="preserve">
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 47.7 71.5"
+	 style="enable-background:new 0 0 47.7 71.5;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:none;}
 	.st1{enable-background:new    ;}
@@ -20,7 +20,7 @@
 <metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  bottomLeftOrigin="true" height="364.5" width="512.9" x="-175.1" y="-209"></sliceSourceBounds>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="76.6" width="50.2" x="0" y="0"></sliceSourceBounds>
 		<optimizationSettings>
 			<targetSettings  fileFormat="PNG24Format" targetSettingsID="0">
 				<PNG24Format  filtered="false" interlaced="false" matteColor="#FFFFFF" noMatteColor="false" transparency="true">
@@ -29,9 +29,8 @@
 		</optimizationSettings>
 	</sfw>
 </metadata>
-<rect x="-175.1" y="-84" class="st0" width="512.9" height="364.5"/>
 <rect y="-5.1" class="st0" width="50.2" height="76.6"/>
 <g class="st1">
-	<path d="M15.3,46.5l-3.5,10.6h-11L19.4,4.6h12l18.1,52.5H38.4l-3.5-10.6H15.3z M25.1,17l-6.8,20.5H32L25.1,17z"/>
+	<path d="M19.2,57.1L1.4,4.6h10.9L24,44.2L35.4,4.6h10.9l-18,52.5H19.2z"/>
 </g>
 </svg>

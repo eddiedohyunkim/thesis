@@ -11,17 +11,16 @@
 	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
 ]>
 <svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50.2 71.5"
-	 style="enable-background:new 0 0 50.2 71.5;" xml:space="preserve">
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 52 71.5"
+	 style="enable-background:new 0 0 52 71.5;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:none;}
-	.st1{font-family:'FreeSansBold';}
-	.st2{font-size:72px;}
+	.st1{enable-background:new    ;}
 </style>
 <metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  bottomLeftOrigin="true" height="95.4" width="50.2" x="0" y="-18.7"></sliceSourceBounds>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="364.5" width="512.9" x="-175.1" y="-209"></sliceSourceBounds>
 		<optimizationSettings>
 			<targetSettings  fileFormat="PNG24Format" targetSettingsID="0">
 				<PNG24Format  filtered="false" interlaced="false" matteColor="#FFFFFF" noMatteColor="false" transparency="true">
@@ -30,6 +29,11 @@
 		</optimizationSettings>
 	</sfw>
 </metadata>
+<rect x="-175.1" y="-84" class="st0" width="512.9" height="364.5"/>
 <rect y="-5.1" class="st0" width="50.2" height="76.6"/>
-<text transform="matrix(1 0 0 1 -2.441406e-04 57.1203)" class="st1 st2">A</text>
+<g class="st1">
+	<path d="M35.6,42.6c0-4.4-2-6.3-6.7-6.3H16.6v20.8H5.8V4.6h28.2C45.2,4.6,48,13,48,18.8c0,6.4-3,10.7-8.9,13
+		c6.7,2.9,7,3.6,7.3,19.1c0,2.3,0.6,3.4,2.3,4.3v1.9H37.2c-1.4-2.5-1.7-4.1-1.7-9C35.5,44.2,35.6,44.8,35.6,42.6z M29.6,13.6h-13
+		v13.7h13c4.5,0,7.6-0.9,7.6-7C37.2,14.5,34.1,13.6,29.6,13.6z"/>
+</g>
 </svg>

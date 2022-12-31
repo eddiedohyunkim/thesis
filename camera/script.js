@@ -1,9 +1,10 @@
 const typeArea = document.getElementById('typeArea');
 
-const sentence = 'wa@';
+const sentence = 'abcdefghijklmnopqrstuvwxyz!';
 
 for(let element of sentence){
 	if(element=='@'){ element='at'};
+	if(element=='!'){ element='exclamation'};
 	createLetter(element);	
 }
 
@@ -14,7 +15,7 @@ function createLetter(letter){
 
 	const widthSetImg = document.createElement('img');
 	widthSetImg.className = 'width-set-img';
-	widthSetImg.src = `assets/letter-${letter}.svg`;
+	widthSetImg.src = `assets/${letter}.svg`;
 	letterCont.appendChild(widthSetImg);
 
 	const video1 = document.createElement('video');
@@ -28,8 +29,8 @@ function createLetter(letter){
 
 	const mask = document.createElement('div');
 	mask.className = 'mask';
-	mask.style.webkitMaskImage = `url(assets/letter-${letter}.svg)`;
-	mask.style.maskImage = `url(assets/letter-${letter}.svg)`;
+	mask.style.webkitMaskImage = `url(assets/${letter}.svg)`;
+	mask.style.maskImage = `url(assets/${letter}.svg)`;
 	maskCont.appendChild(mask);		
 
 	const video2 = document.createElement('video');

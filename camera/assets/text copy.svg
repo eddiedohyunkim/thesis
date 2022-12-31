@@ -21,7 +21,7 @@
 <metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  bottomLeftOrigin="true" height="95.4" width="50.2" x="0" y="-18.7"></sliceSourceBounds>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="364.5" width="512.9" x="-175.1" y="-209"></sliceSourceBounds>
 		<optimizationSettings>
 			<targetSettings  fileFormat="PNG24Format" targetSettingsID="0">
 				<PNG24Format  filtered="false" interlaced="false" matteColor="#FFFFFF" noMatteColor="false" transparency="true">
@@ -30,6 +30,7 @@
 		</optimizationSettings>
 	</sfw>
 </metadata>
+<rect x="-175.1" y="-84" class="st0" width="512.9" height="364.5"/>
 <rect y="-5.1" class="st0" width="50.2" height="76.6"/>
 <text transform="matrix(1 0 0 1 -2.441406e-04 57.1203)" class="st1 st2">A</text>
 </svg>
