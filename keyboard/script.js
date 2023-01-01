@@ -10,5 +10,5 @@ mobileTyped.addEventListener('keyup', function(event) {
 		log.innerHTML = input;
 		logCont.appendChild(log);
 	// }
-	window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);	
+	// window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);	
 }, true);
