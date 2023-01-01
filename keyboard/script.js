@@ -1,1 +1,0 @@
-const keyboardCont = document.getElementById('keyboardCont');
