@@ -3,13 +3,6 @@ html, input{
 	font-family: Helvetica Neue,Helvetica,arial,sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
-html{
-	background-color: red;
-}
-body{
-	margin:0;
-	background-color: white;
-}
 #inputCont{    
 	position: sticky;
 	top:0px;
