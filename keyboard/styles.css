@@ -1,14 +1,14 @@
-body{
-	height:200vh;
-}
-#inputCont{    
-}
-input{
-	display:block;
-	box-sizing: border-box; 
+html, input{
 	font-size: 20px;
 	font-family: Helvetica Neue,Helvetica,arial,sans-serif;
 	-webkit-font-smoothing: antialiased;
+}
+#inputCont{    
+	position: sticky;
+	top:8px;
+}
+input{
+	box-sizing: border-box; 
 	width:100%;
 	border: 0.075em solid;
     padding: 0.25em;
@@ -19,4 +19,13 @@ input:focus{
 }
 input::placeholder {
     color: inherit;
+}
+
+.typed{
+	margin:0;
+	padding: 0.25em;
+	word-wrap: break-word;
+}
+.typed::after{
+	content:' typed';
 }
