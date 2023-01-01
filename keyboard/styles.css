@@ -1,20 +1,18 @@
 body{
 	height:200vh;
 }
-#inputCont{
-	width:100%;
-	top:0;
+#inputCont{    
 }
 input{
 	display:block;
+	box-sizing: border-box; 
 	font-size: 20px;
 	font-family: Helvetica Neue,Helvetica,arial,sans-serif;
 	-webkit-font-smoothing: antialiased;
 	width:100%;
 	border: 0.075em solid;
     padding: 0.25em;
-/*    padding: 0.5ex;*/
-}
+}  
 input:focus{
     outline: none;
 }
