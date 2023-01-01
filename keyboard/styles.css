@@ -3,6 +3,11 @@ html, input{
 	font-family: Helvetica Neue,Helvetica,arial,sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
+html{
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+} /* preserves HTML font-size when iPhone orientation changes from portrait to landscape */
 #inputCont{    
 	position: sticky;
 	top:0px;
