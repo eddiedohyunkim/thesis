@@ -1,0 +1,15 @@
+:root {
+  --fontSize: 120px;
+}
+@font-face{
+  font-family: FreeMono;
+  src: url('../ASSETS/freeMono-20120503-woff/FreeMonoBold.woff');
+}
+body{
+  font-family: FreeMono;
+  margin: 8px;
+}
+#typeArea{
+  display: inline-flex;
+  flex-wrap: wrap;
+}
