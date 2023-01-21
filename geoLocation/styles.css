@@ -9,7 +9,17 @@ body{
   font-family: FreeMono;
   margin: 8px;
 }
-#typeArea{
+/*#typeArea{
   display: inline-flex;
   flex-wrap: wrap;
+}*/
+
+button{
+  background-color: #00ff00;
+}
+.btn-success{
+  background-color: #00ff00;
+}
+.btn-danger{
+  background-color: #ff0000;
 }

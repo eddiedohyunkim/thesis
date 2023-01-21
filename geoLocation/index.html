@@ -3,11 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>geoLocation</title>
+  <title>gyroscope</title>
   <link rel='stylesheet' href='styles.css'>
 </head>
 <body>
   <div id='typeArea'>
+    <button id='start_demo'>Start</button>
+    <p>Number of datapoints: <span id='num-observed-events'>0</span></p>
+    <ul>
+      <li>X-axis: <span id='orientation-b'>0</span><span>°</span></li>
+      <li>Y-axis: <span id='orientation-g'>0</span><span>°</span></li>
+      <li>Z-axis: <span id='orientation-a'>0</span><span>°</span></li>
+    </ul>
   </div>
 </body>
 <script src='script.js'></script>
