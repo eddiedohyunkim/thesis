@@ -32,29 +32,51 @@ function updateFieldIfNotNull(fieldName, value, precision=0){
     document.getElementById(fieldName).innerHTML = value.toFixed(precision);
 }
 
-function handleMotion(event) {
-  // updateFieldIfNotNull('Accelerometer_gx', event.accelerationIncludingGravity.x);
-  // updateFieldIfNotNull('Accelerometer_gy', event.accelerationIncludingGravity.y);
-  // updateFieldIfNotNull('Accelerometer_gz', event.accelerationIncludingGravity.z);
-
-  // updateFieldIfNotNull('Accelerometer_x', event.acceleration.x);
-  // updateFieldIfNotNull('Accelerometer_y', event.acceleration.y);
-  // updateFieldIfNotNull('Accelerometer_z', event.acceleration.z);
-
-  // updateFieldIfNotNull('Accelerometer_i', event.interval, 2);
-
-  // updateFieldIfNotNull('Gyroscope_z', event.rotationRate.alpha);
-  // updateFieldIfNotNull('Gyroscope_x', event.rotationRate.beta);
-  // updateFieldIfNotNull('Gyroscope_y', event.rotationRate.gamma);
-  // incrementEventCount();
-}
+// let is_running = false;
+// let demo_button = document.getElementById("start_demo");
+// demo_button.onclick = function(e) {
+//   e.preventDefault();
+  
+//   // Request permission for iOS 13+ devices
+//   if (
+//     DeviceMotionEvent &&
+//     typeof DeviceMotionEvent.requestPermission === "function"
+//   ) {
+//     DeviceMotionEvent.requestPermission();
+//   }
+  
+//   if (is_running){
+//     window.removeEventListener("deviceorientation", handleOrientation);
+//     demo_button.innerHTML = "Start";
+//     demo_button.classList.add('btn-success');
+//     demo_button.classList.remove('btn-danger');
+//     is_running = false;
+//   }else{
+//     window.addEventListener("deviceorientation", handleOrientation);
+//     document.getElementById("start_demo").innerHTML = "Stop";
+//     demo_button.classList.remove('btn-success');
+//     demo_button.classList.add('btn-danger');
+//     is_running = true;
+//   }
+// };
 
 let is_running = false;
-let demo_button = document.getElementById("start_demo");
-demo_button.onclick = function(e) {
-  e.preventDefault();
-  
-  // Request permission for iOS 13+ devices
+let holdArea = document.getElementById('holdArea');
+holdArea.addEventListener('touchstart', (event) => {
+  event.preventDefault();
+  is_running = true;
+  run();
+});
+
+holdArea.addEventListener('touchend', (event) => {
+  event.preventDefault();
+  is_running = false;
+  run();
+});
+
+
+
+function run(){
   if (
     DeviceMotionEvent &&
     typeof DeviceMotionEvent.requestPermission === "function"
@@ -63,21 +85,26 @@ demo_button.onclick = function(e) {
   }
   
   if (is_running){
+    // setInterval( function(){console.log(true)}, 100)
+    
     // window.removeEventListener("devicemotion", handleMotion);
     window.removeEventListener("deviceorientation", handleOrientation);
-    demo_button.innerHTML = "Start";
-    demo_button.classList.add('btn-success');
-    demo_button.classList.remove('btn-danger');
-    is_running = false;
+    holdArea.classList.add('btn-success');
+    holdArea.classList.remove('btn-danger');
+    // demo_button.innerHTML = "Start";
+    // demo_button.classList.add('btn-success');
+    // demo_button.classList.remove('btn-danger');
+    // is_running = false;
   }else{
+    // console.log(false)
     // window.addEventListener("devicemotion", handleMotion);
     window.addEventListener("deviceorientation", handleOrientation);
-    document.getElementById("start_demo").innerHTML = "Stop";
-    demo_button.classList.remove('btn-success');
-    demo_button.classList.add('btn-danger');
-    is_running = true;
+    // document.getElementById("start_demo").innerHTML = "Stop";
+    holdArea.classList.remove('btn-success');
+    holdArea.classList.add('btn-danger');
+    // is_running = true;
   }
-};
+}
 
 /*
 Light and proximity are not supported anymore by mainstream browsers.
