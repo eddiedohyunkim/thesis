@@ -32,13 +32,13 @@ let is_running = false;
 let holdArea = document.getElementById('holdArea');
 document.body.addEventListener('touchstart', (event) => {
   event.preventDefault();
-  is_running = false;
+  is_running = true;
   run();
 });
 
 document.body.addEventListener('touchend', (event) => {
   event.preventDefault();
-  is_running = true;
+  is_running = false;
   run();
 });
 
