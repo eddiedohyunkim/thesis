@@ -29,16 +29,9 @@ function updateFieldIfNotNull(fieldName, value, precision=0){
 }
 
 let is_running = false;
-let holdArea = document.getElementById('holdArea');
-holdArea.addEventListener('touchstart', (event) => {
+document.body.addEventListener('touchstart', (event) => {
   event.preventDefault();
   is_running = true;
-  run();
-});
-
-holdArea.addEventListener('touchend', (event) => {
-  event.preventDefault();
-  is_running = false;
   run();
 });
 
@@ -53,8 +46,10 @@ function run(){
   if (is_running){
     window.removeEventListener("deviceorientation", handleOrientation);
     is_running = false;
+    document.body.style.backgroundColor = 'blue';
   }else{
     window.addEventListener("deviceorientation", handleOrientation);
     is_running = true;
+    document.body.style.backgroundColor = 'yellow';
   }
 }
