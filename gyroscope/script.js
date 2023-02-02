@@ -30,15 +30,15 @@ function updateFieldIfNotNull(fieldName, value, precision=0){
 
 let is_running = false;
 let holdArea = document.getElementById('holdArea');
-// holdArea.addEventListener('touchstart', (event) => {
-//   event.preventDefault();
-//   is_running = true;
-//   run();
-// });
-
-holdArea.addEventListener('touchend', (event) => {
+document.body.addEventListener('touchstart', (event) => {
   event.preventDefault();
   is_running = false;
+  run();
+});
+
+document.body.addEventListener('touchend', (event) => {
+  event.preventDefault();
+  is_running = true;
   run();
 });
 
