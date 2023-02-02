@@ -1,10 +1,23 @@
+// function success(position) {
+//   console.log(position.coords.latitude, position.coords.longitude);
+// }
+
+// function error() {
+//   alert('Sorry, no position available.');
+// }
+
+// const options = {
+//   enableHighAccuracy: true,
+//   maximumAge: 0,
+//   timeout: 1000
+// };
+
+// const watchID = navigator.geolocation.watchPosition(success, error, options);
+
 function handleOrientation(event) {
-  let gyroX = event.beta.toFixed(0);
-  let gyroY = event.gamma.toFixed(0);
-  let gyroZ = event.alpha.toFixed(0);
-  updateFieldIfNotNull('orientation-a', gyroZ);
-  updateFieldIfNotNull('orientation-b', gyroX);
-  updateFieldIfNotNull('orientation-g', gyroY);
+  updateFieldIfNotNull('orientation-a', event.alpha);
+  updateFieldIfNotNull('orientation-b', event.beta);
+  updateFieldIfNotNull('orientation-g', event.gamma);
   incrementEventCount();
 }
 
@@ -19,9 +32,37 @@ function updateFieldIfNotNull(fieldName, value, precision=0){
     document.getElementById(fieldName).innerHTML = value.toFixed(precision);
 }
 
+// let is_running = false;
+// let demo_button = document.getElementById("start_demo");
+// demo_button.onclick = function(e) {
+//   e.preventDefault();
+  
+//   // Request permission for iOS 13+ devices
+//   if (
+//     DeviceMotionEvent &&
+//     typeof DeviceMotionEvent.requestPermission === "function"
+//   ) {
+//     DeviceMotionEvent.requestPermission();
+//   }
+  
+//   if (is_running){
+//     window.removeEventListener("deviceorientation", handleOrientation);
+//     demo_button.innerHTML = "Start";
+//     demo_button.classList.add('btn-success');
+//     demo_button.classList.remove('btn-danger');
+//     is_running = false;
+//   }else{
+//     window.addEventListener("deviceorientation", handleOrientation);
+//     document.getElementById("start_demo").innerHTML = "Stop";
+//     demo_button.classList.remove('btn-success');
+//     demo_button.classList.add('btn-danger');
+//     is_running = true;
+//   }
+// };
+
 let is_running = false;
 let holdArea = document.getElementById('holdArea');
-window.addEventListener('touchstart', (event) => {
+holdArea.addEventListener('touchstart', (event) => {
   event.preventDefault();
   is_running = true;
   run();
