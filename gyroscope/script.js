@@ -19,7 +19,7 @@ function updateFieldIfNotNull(fieldName, value, precision=0){
     document.getElementById(fieldName).innerHTML = value.toFixed(precision);
 }
 
-window.addEventListener('click', (event) => {
+window.addEventListener('touchstart', (event) => {
   event.preventDefault();
   run();
 });
