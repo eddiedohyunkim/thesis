@@ -47,10 +47,8 @@ function run(){
   if (is_running){
     window.removeEventListener("deviceorientation", handleOrientation);
     is_running = false;
-    document.body.style.backgroundColor = 'blue';
   }else{
     window.addEventListener("deviceorientation", handleOrientation);
     is_running = true;
-    document.body.style.backgroundColor = 'yellow';
   }
 }
