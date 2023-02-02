@@ -1,7 +1,10 @@
 function handleOrientation(event) {
-  updateFieldIfNotNull('orientation-a', event.alpha);
-  updateFieldIfNotNull('orientation-b', event.beta);
-  updateFieldIfNotNull('orientation-g', event.gamma);
+  let gyroX = event.beta.toFixed(0);
+  let gyroY = event.gamma.toFixed(0);
+  let gyroZ = event.alpha.toFixed(0);
+  updateFieldIfNotNull('orientation-a', gyroZ);
+  updateFieldIfNotNull('orientation-b', gyroX);
+  updateFieldIfNotNull('orientation-g', gyroY);
   incrementEventCount();
 }
 
@@ -16,6 +19,11 @@ function updateFieldIfNotNull(fieldName, value, precision=0){
     document.getElementById(fieldName).innerHTML = value.toFixed(precision);
 }
 
+window.addEventListener('click', (event) => {
+  event.preventDefault();
+  run();
+});
+
 function run(){
   if (
     DeviceMotionEvent &&
@@ -23,5 +31,5 @@ function run(){
   ) {
     DeviceMotionEvent.requestPermission();
   }
-  window.removeEventListener("deviceorientation", handleOrientation);
+    window.removeEventListener("deviceorientation", handleOrientation);
 }
