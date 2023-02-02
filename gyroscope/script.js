@@ -1,8 +1,20 @@
 function handleOrientation(event) {
-  updateFieldIfNotNull('orientation-a', event.alpha);
-  updateFieldIfNotNull('orientation-b', event.beta);
-  updateFieldIfNotNull('orientation-g', event.gamma);
+  let gyroX = event.beta; 
+  let gyroY = event.gamma;
+  let gyroZ = event.alpha;
+  updateFieldIfNotNull('orientation-a', gyroZ);
+  updateFieldIfNotNull('orientation-b', gyroX);
+  updateFieldIfNotNull('orientation-g', gyroY);
+  detectUpsideDown(gyroX, gyroY, gyroZ);
   incrementEventCount();
+}
+
+function detectUpsideDown(x, y, z){
+  if((x > 170 && x <= 180) || (x >= -180 && x < -170)){
+    document.body.style.backgroundColor = 'red';
+  }else{
+    document.body.style.backgroundColor = 'white';
+  }
 }
 
 function incrementEventCount(){
