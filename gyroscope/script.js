@@ -11,7 +11,9 @@ function handleOrientation(event) {
 
 function detectUpsideDown(x, y, z){
   if((x > 170 && x <= 180) || (x >= -180 && x < -170)){
-    document.body.style.backgroundColor = 'red';
+    if(y >= -10 && y <= 10){
+      document.body.style.backgroundColor = 'red';
+    }
   }else{
     document.body.style.backgroundColor = 'white';
   }
