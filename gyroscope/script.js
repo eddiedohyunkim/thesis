@@ -1,3 +1,37 @@
+const typeArea = document.getElementById('typeArea')
+const sentence = 'THE REAL TEXT GOES HERE';
+const fakeOptions = 'ABCDEFGHIJKLMNOPQRSTUVWWXYZ1234567890~!@#$%^&*()_+:;?/'
+
+for(let each of sentence){
+  createLetter(each)
+}
+
+function createLetter(letter){
+  let flipcard = document.createElement('div');
+  flipcard.className = 'flip-card';
+  typeArea.appendChild(flipcard);
+
+  let flipcardInner = document.createElement('div');
+  flipcardInner.className = 'flip-card-inner rotate';
+  flipcard.appendChild(flipcardInner);
+
+  let flipcardFront = document.createElement('div');
+  flipcardFront.className = 'flip-card-front';
+  flipcardFront.innerHTML = fakeOptions[ran(fakeOptions.length)]
+  flipcardInner.appendChild(flipcardFront);
+
+  let flipcardBack = document.createElement('div');
+  flipcardBack.className = 'flip-card-back';
+  flipcardBack.innerHTML = letter
+  flipcardInner.appendChild(flipcardBack);
+
+}
+
+function ran(num){
+  return Math.floor(Math.random()*num);
+}
+
+
 function handleOrientation(event) {
   let gyroX = event.beta; 
   let gyroY = event.gamma;

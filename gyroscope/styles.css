@@ -48,21 +48,19 @@ li{
   width: 60px;
   height: 100px;
   -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+  backface-visibility: hidden;
+  text-align: center;
+  font-size:100px;
+  line-height: 1;
 }
 
+
+
 .flip-card-front {
-  background-color: black;
+/*  background-color: black;*/
 }
 
 .flip-card-back {
  transform: rotateX(180deg);
- text-align: center;
-}
-span{
-  display:block;
-  text-align: center;
-  font-size:100px;
-  margin:0;
-  line-height: 1;
+ 
 }
