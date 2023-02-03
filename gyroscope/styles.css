@@ -2,17 +2,17 @@
   --fontSize: 120px;
 }
 @font-face{
-  font-family: FreeSans;
-  src: url('../ASSETS/freeSans-20120503-woff/FreeSansBold.woff');
+  font-family: FreeMono;
+  src: url('../ASSETS/freeMono-20120503-woff/FreeMonoBold.woff');
 }
 body{
-  font-family: FreeSans;
+  font-family: FreeMono;
   margin: 8px;
 }
-/*#typeArea{
+#typeArea{
   display: inline-flex;
   flex-wrap: wrap;
-}*/
+}
 #holdArea{
   display: inline-block;
   background-color: #00ff00;
@@ -21,18 +21,23 @@ li{
   list-style-type: none;
 }
 
+.flip-card *{
+  font-size: 100px;
+}
+
 .flip-card {
   background-color: transparent;
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 65px;
   perspective: 500px;
+  margin-left:0.1em;
 /*  outline:5px solid red;*/
 }
 
 .flip-card-inner {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 65px;
   text-align: center;
 /*  transition: transform 5s;*/
   transform-style: preserve-3d;
@@ -44,8 +49,8 @@ li{
 
 .flip-card-front, .flip-card-back {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 65px;
   -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
@@ -56,9 +61,11 @@ li{
 
 .flip-card-back {
  transform: rotateX(180deg);
+
 }
 h1{
-  font-size:100px;
+/*  font-size:100px;*/
+   text-align: center;
   margin:0;
-  line-height: 1;
+  line-height: 0.65;
 }
