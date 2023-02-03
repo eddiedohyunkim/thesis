@@ -38,21 +38,20 @@ li{
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+/*.flip-card:hover .flip-card-inner {
   transform: rotateX(180deg);
-}
+}*/
 
 .flip-card-front, .flip-card-back {
   position: absolute;
   width: 100px;
   height: 100px;
-  background-color: black;
   -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
 .flip-card-front {
-  
+  background-color: black;
 }
 
 .flip-card-back {
