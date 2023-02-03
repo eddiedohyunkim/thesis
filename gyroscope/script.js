@@ -54,9 +54,9 @@ function lettersRotateX(x){
 
 function detectUpsideDown(x, y, z){
   if( ((x > 170 && x <= 180) || (x >= -180 && x < -170)) && (y >= -10 && y <= 10) ){
-    document.body.className = 'inverted';
+    document.body.classList.add('inverted');
   }else{
-    document.body.classList.remove = 'inverted';
+    document.body.classList.remove('inverted');
   }
 }
 
