@@ -21,16 +21,11 @@ li{
   list-style-type: none;
 }
 
-.flip-card *{
-  font-size: 100px;
-}
-
 .flip-card {
   background-color: transparent;
   width: 100px;
   height: 100px;
-  perspective: 200px;
-  margin-left:0.1em;
+  perspective: 500px;
 /*  outline:5px solid red;*/
 }
 
@@ -38,30 +33,33 @@ li{
   position: relative;
   width: 100px;
   height: 100px;
+  text-align: center;
 /*  transition: transform 5s;*/
   transform-style: preserve-3d;
 }
 
-/*.flip-card:hover .flip-card-inner {
+.flip-card:hover .flip-card-inner {
   transform: rotateX(180deg);
-}*/
+}
 
 .flip-card-front, .flip-card-back {
   position: absolute;
   width: 100px;
   height: 100px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
   background-color: black;
+  -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+  
 }
 
 .flip-card-back {
  transform: rotateX(180deg);
 }
 h1{
-/*  font-size:100px;*/
-  color:white;
-  text-align: center;
+  font-size:100px;
   margin:0;
-  line-height:1;
+  line-height: 1;
 }
