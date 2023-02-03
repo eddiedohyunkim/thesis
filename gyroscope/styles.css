@@ -23,16 +23,16 @@ li{
 
 .flip-card {
   background-color: transparent;
-  width: 70px;
+  width: 60px;
   height: 100px;
-  perspective: 500px;
+/*  perspective: 500px;*/
   margin: 0 5px 5px 0;
 /*  outline:5px solid red;*/
 }
 
 .flip-card-inner {
   position: relative;
-  width: 70px;
+  width: 60px;
   height: 100px;
   text-align: center;
 /*  transition: transform 0.5s;*/
@@ -45,7 +45,7 @@ li{
 
 .flip-card-front, .flip-card-back {
   position: absolute;
-  width: 70px;
+  width: 60px;
   height: 100px;
   -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
