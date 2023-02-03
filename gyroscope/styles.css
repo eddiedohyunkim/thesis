@@ -28,14 +28,14 @@ li{
 
 .flip-card {
   background-color: transparent;
-  perspective: 100px;
+  perspective: 50px;
   margin: 0 5px 5px 0;
 }
 
 .flip-card-inner {
   position: relative;
   text-align: center;
-  transition: transform 0.1s;
+/*  transition: transform 2s;*/
   transform-style: preserve-3d;
 }
 
