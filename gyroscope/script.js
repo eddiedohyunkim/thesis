@@ -1,5 +1,5 @@
 const typeArea = document.getElementById('typeArea')
-const sentence = 'THE REAL TEXT GOES HERE';
+const sentence = 'A possible defense strategy against algorithmic recognition';
 const fakeOptions = 'ABCDEFGHIJKLMNOPQRSTUVWWXYZ1234567890~!@#$%^&*()_+:;?/'
 
 for(let each of sentence){
