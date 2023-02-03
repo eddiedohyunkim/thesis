@@ -23,28 +23,29 @@ li{
 
 .flip-card {
   background-color: transparent;
-  width: 100px;
+  width: 80px;
   height: 100px;
   perspective: 500px;
+  margin-right: 0.1em;
 /*  outline:5px solid red;*/
 }
 
 .flip-card-inner {
   position: relative;
-  width: 100px;
+  width: 80px;
   height: 100px;
   text-align: center;
 /*  transition: transform 5s;*/
   transform-style: preserve-3d;
 }
 
-/*.flip-card:hover .flip-card-inner {
+.flip-card:hover .flip-card-inner {
   transform: rotateX(180deg);
-}*/
+}
 
 .flip-card-front, .flip-card-back {
   position: absolute;
-  width: 100px;
+  width: 80px;
   height: 100px;
   -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -56,8 +57,10 @@ li{
 
 .flip-card-back {
  transform: rotateX(180deg);
+ text-align: center;
 }
 h1{
+  text-align: center;
   font-size:100px;
   margin:0;
   line-height: 1;
