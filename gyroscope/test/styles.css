@@ -10,10 +10,10 @@ body{
   font-family: FreeSans;
   margin: 8px;
 }
-#typeArea{
+/*#typeArea{
   display: inline-flex;
   flex-wrap: wrap;
-}
+}*/
 .flip-card {
   background-color: transparent;
   width: 300px;

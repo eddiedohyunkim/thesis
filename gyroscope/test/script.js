@@ -2,12 +2,12 @@ function handleOrientation(event) {
   let gyroX = event.beta; 
   let gyroY = event.gamma;
   let gyroZ = event.alpha;
-  // updateFieldIfNotNull('orientation-a', gyroZ);
-  // updateFieldIfNotNull('orientation-b', gyroX);
-  // updateFieldIfNotNull('orientation-g', gyroY);
+  updateFieldIfNotNull('orientation-a', gyroZ);
+  updateFieldIfNotNull('orientation-b', gyroX);
+  updateFieldIfNotNull('orientation-g', gyroY);
   detectUpsideDown(gyroX, gyroY, gyroZ);
   lettersRotateX(gyroX);
-  // incrementEventCount();
+  incrementEventCount();
 }
 
 function lettersRotateX(x){
