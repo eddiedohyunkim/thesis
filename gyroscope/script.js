@@ -14,7 +14,7 @@ function handleOrientation(event) {
 function lettersRotateX(x){
   const rotatable = document.querySelectorAll('.rotate');
   for(let each of rotatable){
-    each.style.transform = `rotateX(${x.toFixed(0)}deg)`;
+    each.style.transform = `rotateX(${x}deg)`;
   }
 }
 
