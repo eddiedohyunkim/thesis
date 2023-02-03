@@ -35,7 +35,7 @@ li{
 .flip-card-inner {
   position: relative;
   text-align: center;
-  transition: transform 2s;
+/*  transition: transform 2s;*/
   transform-style: preserve-3d;
 }
 
