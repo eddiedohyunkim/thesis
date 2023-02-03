@@ -2,11 +2,11 @@
   --fontSize: 120px;
 }
 @font-face{
-  font-family: FreeMono;
-  src: url('../ASSETS/freeMono-20120503-woff/FreeMonoBold.woff');
+  font-family: FreeSans;
+  src: url('../ASSETS/freeSans-20120503-woff/FreeSansBold.woff');
 }
 body{
-  font-family: FreeMono;
+  font-family: FreeSans;
   margin: 8px;
 }
 /*#typeArea{
@@ -19,4 +19,46 @@ body{
 } 
 li{
   list-style-type: none;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  outline:5px solid red;
+  perspective: 500px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+/*  transition: transform 5s;*/
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: black;
+}
+
+.flip-card-back {
+ transform: rotateX(180deg);
+}
+h1{
+  font-size:300px;
+  margin:0;
+  line-height: 1;
 }
