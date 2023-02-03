@@ -55,9 +55,9 @@ li{
   background-color: black;
 }
 
-/*.flip-card-back {
+.flip-card-back {
  transform: rotateX(180deg);
-}*/
+}
 h1{
 /*  font-size:100px;*/
   color:white;
