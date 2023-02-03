@@ -43,9 +43,9 @@ li{
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+/*.flip-card:hover .flip-card-inner {
   transform: rotateX(180deg);
-}
+}*/
 
 .flip-card-front, .flip-card-back {
   position: absolute;
@@ -59,11 +59,9 @@ li{
   background-color: black;
 }
 
-.flip-card-back {
+/*.flip-card-back {
  transform: rotateX(180deg);
- border:1px solid;
-
-}
+}*/
 h1{
 /*  font-size:100px;*/
   text-align: center;
