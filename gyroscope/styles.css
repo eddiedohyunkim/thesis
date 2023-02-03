@@ -61,6 +61,7 @@ li{
 
 .flip-card-back {
  transform: rotateX(180deg);
+ border:1px solid;
 
 }
 h1{
