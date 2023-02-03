@@ -38,13 +38,13 @@ li{
   position: relative;
   width: 100px;
   height: 100px;
-  transition: transform 5s;
+/*  transition: transform 5s;*/
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+/*.flip-card:hover .flip-card-inner {
   transform: rotateX(180deg);
-}
+}*/
 
 .flip-card-front, .flip-card-back {
   position: absolute;
@@ -55,13 +55,9 @@ li{
   background-color: black;
 }
 
-.flip-card-front {
-  
-}
-
-.flip-card-back {
+/*.flip-card-back {
  transform: rotateX(180deg);
-}
+}*/
 h1{
 /*  font-size:100px;*/
   color:white;
