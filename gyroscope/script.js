@@ -2,12 +2,12 @@ function handleOrientation(event) {
   let gyroX = event.beta; 
   let gyroY = event.gamma;
   let gyroZ = event.alpha;
-  updateFieldIfNotNull('orientation-a', gyroZ);
-  updateFieldIfNotNull('orientation-b', gyroX);
-  updateFieldIfNotNull('orientation-g', gyroY);
+  // updateFieldIfNotNull('orientation-a', gyroZ);
+  // updateFieldIfNotNull('orientation-b', gyroX);
+  // updateFieldIfNotNull('orientation-g', gyroY);
   detectUpsideDown(gyroX, gyroY, gyroZ);
   lettersRotateX(gyroX)
-  incrementEventCount();
+  // incrementEventCount();
 
 }
 
@@ -38,7 +38,7 @@ function updateFieldIfNotNull(fieldName, value, precision=0){
 }
 
 let is_running = false;
-let holdArea = document.getElementById('holdArea');
+// let holdArea = document.getElementById('holdArea');
 document.body.addEventListener('touchstart', (event) => {
   event.preventDefault();
   is_running = true;
