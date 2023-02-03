@@ -6,7 +6,16 @@ function handleOrientation(event) {
   updateFieldIfNotNull('orientation-b', gyroX);
   updateFieldIfNotNull('orientation-g', gyroY);
   detectUpsideDown(gyroX, gyroY, gyroZ);
+  lettersRotateX(gyroX)
   incrementEventCount();
+
+}
+
+function lettersRotateX(x){
+  const rotatable = document.querySelectorAll('.rotate');
+  for(let each of rotatable){
+    each.style.transform = `rotateX(${x.toFixed(0)}deg)`;
+  }
 }
 
 function detectUpsideDown(x, y, z){
