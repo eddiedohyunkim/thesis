@@ -17,6 +17,7 @@ function lettersRotateX(x){
   }
 }
 
+
 function detectUpsideDown(x, y, z){
   if( ((x > 170 && x <= 180) || (x >= -180 && x < -170)) && (y >= -10 && y <= 10) ){
     document.body.style.backgroundColor = 'red';
@@ -37,7 +38,6 @@ function updateFieldIfNotNull(fieldName, value, precision=0){
 }
 
 let is_running = false;
-let holdArea = document.getElementById('holdArea');
 document.body.addEventListener('touchstart', (event) => {
   event.preventDefault();
   is_running = true;
