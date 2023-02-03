@@ -2,11 +2,11 @@
   --fontSize: 120px;
 }
 @font-face{
-  font-family: FreeMono;
-  src: url('../ASSETS/freeMono-20120503-woff/FreeMonoBold.woff');
+  font-family: FreeSans;
+  src: url('../ASSETS/freeSans-20120503-woff/FreeSansBold.woff');
 }
 body{
-  font-family: FreeMono;
+  font-family: FreeSans;
   margin: 8px;
 }
 #typeArea{
@@ -27,17 +27,17 @@ li{
 
 .flip-card {
   background-color: transparent;
-  width: 60px;
-  height: 65px;
-  perspective: 500px;
+  width: 100px;
+  height: 100px;
+  perspective: 200px;
   margin-left:0.1em;
 /*  outline:5px solid red;*/
 }
 
 .flip-card-inner {
   position: relative;
-  width: 60px;
-  height: 65px;
+  width: 100px;
+  height: 100px;
   text-align: center;
 /*  transition: transform 5s;*/
   transform-style: preserve-3d;
@@ -49,8 +49,8 @@ li{
 
 .flip-card-front, .flip-card-back {
   position: absolute;
-  width: 60px;
-  height: 65px;
+  width: 100px;
+  height: 100px;
   -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
@@ -65,7 +65,7 @@ li{
 }
 h1{
 /*  font-size:100px;*/
-   text-align: center;
+  text-align: center;
   margin:0;
-  line-height: 0.65;
+  line-height:1;
 }
