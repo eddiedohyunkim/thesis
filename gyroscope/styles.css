@@ -9,6 +9,12 @@ body{
   font-family: FreeMono;
   margin: 8px;
 }
+
+.inverted{
+  background-color: black;
+  color:white;
+}
+
 #typeArea{
   display: inline-flex;
   flex-wrap: wrap;
