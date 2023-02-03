@@ -38,7 +38,6 @@ li{
   position: relative;
   width: 100px;
   height: 100px;
-  text-align: center;
 /*  transition: transform 5s;*/
   transform-style: preserve-3d;
 }
@@ -52,11 +51,12 @@ li{
   width: 100px;
   height: 100px;
   -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+  backface-visibility: hidden;
+  background-color: black;
 }
 
 .flip-card-front {
-  background-color: black;
+  
 }
 
 /*.flip-card-back {
@@ -64,6 +64,7 @@ li{
 }*/
 h1{
 /*  font-size:100px;*/
+  color:white;
   text-align: center;
   margin:0;
   line-height:1;
