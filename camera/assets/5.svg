@@ -14,12 +14,12 @@
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 40 71.5"
 	 style="enable-background:new 0 0 40 71.5;" xml:space="preserve">
 <style type="text/css">
-	.st1{enable-background:new    ;}
+	.st0{enable-background:new    ;}
 </style>
 <metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  bottomLeftOrigin="true" height="76.6" width="50.2" x="0" y="0"></sliceSourceBounds>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="52.7" width="35.3" x="1.9" y="12.7"></sliceSourceBounds>
 		<optimizationSettings>
 			<targetSettings  fileFormat="PNG24Format" targetSettingsID="0">
 				<PNG24Format  filtered="false" interlaced="false" matteColor="#FFFFFF" noMatteColor="false" transparency="true">
@@ -28,7 +28,8 @@
 		</optimizationSettings>
 	</sfw>
 </metadata>
-<g class="st1">
-	<path d="M4.9,21.9v-6.7c8.8,0,14-3.1,15.6-9.1h6.7v51.1H17.1V21.9H4.9z"/>
+<g class="st0">
+	<path d="M35.2,15.1H14.1l-1.7,10.7c3-2.2,5.5-3.1,8.9-3.1c9.4,0,15.9,7.2,15.9,17.6c0,11-7.5,18.5-18.4,18.5c-9.9,0-16.7-6-16.8-15
+		h9.9c0.2,4.1,2.7,6.3,7.1,6.3c5,0,8.2-3.7,8.2-9.6c0-6.2-3.1-9.9-8.2-9.9c-3.1,0-5.4,1.4-6.5,3.9H3.4L7.9,6.1h27.3V15.1z"/>
 </g>
 </svg>
