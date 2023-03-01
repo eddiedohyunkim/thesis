@@ -1,0 +1,80 @@
+:root {
+  --fontSize: 400px;
+}
+@font-face{
+  font-family: FreeSans;
+  src: url('../../ASSETS/freeSans-20120503-woff/FreeSans.woff');
+}
+body{
+  font-family: FreeSans;
+  margin: 8px;
+}
+#typeArea{
+	display: inline-flex;
+	flex-wrap: wrap;
+	filter: brightness(0);
+	font-size: calc(var(--fontSize)/5);
+}
+.lg-char{
+	width: fit-content;
+}
+.sm-char-cont{
+  display: flex;
+}
+
+
+
+.sm-char{
+	position: relative;
+}
+.empty{
+	color: #ffffff00;
+/*	letter-spacing: -0.01em;*/
+}
+
+#shape{
+	overflow-wrap: break-word;
+	width:100vw;
+	opacity: 0.25;
+	letter-spacing: 0.115em;
+	line-height: 0.835;
+	position: absolute;
+	top: 12px;
+	margin-left: 12px;
+	font-size: 143px;
+	color: red;
+}
+
+#viewport * {
+	margin:0;
+	padding:0;
+}
+#viewport{
+/*	background-color: red;*/
+	width:100%;
+	font-size: calc(var(--fontSize)/5);
+	overflow-x: scroll;
+	display: inline-flex;
+	filter: brightness(0);
+}
+/* Move it (define the animation) */
+@-moz-keyframes scroll-left {
+0% { -moz-transform: translateX(100%); }
+100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes scroll-left {
+0% { -webkit-transform: translateX(100%); }
+100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes scroll-left {
+0% { 
+-moz-transform: translateX(100%); /* Browser bug fix */
+-webkit-transform: translateX(100%); /* Browser bug fix */
+transform: translateX(100%); 
+}
+100% { 
+-moz-transform: translateX(-100%); /* Browser bug fix */
+-webkit-transform: translateX(-100%); /* Browser bug fix */
+transform: translateX(-100%); 
+}
+}

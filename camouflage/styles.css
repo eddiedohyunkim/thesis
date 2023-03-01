@@ -1,66 +1,57 @@
 :root {
-  --fontSize: 80px;
+  --fontSize: 20px;
 }
 @font-face{
   font-family: FreeSans;
   src: url('../ASSETS/freeSans-20120503-woff/FreeSans.woff');
 }
-body{
-  font-family: FreeSans;
-  margin: 8px;
-}
 #typeArea{
+	font-family: FreeSans;
+	font-size: calc(var(--fontSize));
+/*	line-height: 1.2;*/
 	display: inline-flex;
 	flex-wrap: wrap;
 	filter: brightness(0);
-	font-size: calc(var(--fontSize)/5);
 }
-.lg-char{
+
+.letter{
 	width: fit-content;
 }
-.sm-char-cont{
+.row{
   display: flex;
 }
-
-
-
-.sm-char{
-	position: relative;
+.row span{
+  position: relative;
 }
 .empty{
 	color: #ffffff00;
-	letter-spacing: -0.01em;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #typeArea2{
+	font-family: FreeSans;
 	display: flex;
 	flex-direction: column;
 	filter: brightness(0);
 }
-
 #shape{
+	font-family: FreeSans;
 	overflow-wrap: break-word;
 	width:100vw;
 	opacity: 0.25;
 	letter-spacing: 0.115em;
-	line-height: 0.835;
+	line-height: 0.8;
 	position: absolute;
 	top: 12px;
-	margin-left: 12px;
+/*	margin-left: 8px;*/
 	font-size: 143px;
 	color: red;
+}
+.noSelect{
+		-webkit-touch-callout: none; /* iOS Safari */
+		  -webkit-user-select: none; /* Safari */
+		   -khtml-user-select: none; /* Konqueror HTML */
+		     -moz-user-select: none; /* Old versions of Firefox */
+		      -ms-user-select: none; /* Internet Explorer/Edge */
+		          user-select: none; /* Non-prefixed version, currently
+		                                supported by Chrome, Edge, Opera and Firefox */
 }
