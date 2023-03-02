@@ -1,4 +1,6 @@
-	const typeArea = document.getElementById('typeArea');
+	// const typeArea = document.getElementById('typeArea');
+const typeArea = document.querySelectorAll('.typeArea');
+console.log(typeArea[0])
 	const font = {
 		'a': [`rW—ll:.i%@`,`zLNi:|Gj'iUS`,`#M|i:$Wji|—`,`Wj:'.ji';i|j|il:.T`,`x::iMOmGil;i`,'@—W%%M'],
 		'b': [`e:'li'.:j|;il|.iCy`,`ol;|@—1'':|s`,`h|j'j:.i;||j'il.j%`,`u;l|WN—;j'l*`,`nj:'.ji';j::il'|.;K`,`W@—W%V`],
@@ -52,19 +54,27 @@
 		'-': [`@W%%`,`%—%W`,`a;:|lij;|:|lg`,`%@W%`,`%W—%`,`%mMDN`],
 	}
 
-	const sentence = '1+2=3,A+B,#A=B,A&B 0123456789(2)908A:;.,!? 2023 cd lecture series Andrew Leclair&Eroon Kang';
+	const sentence = '908A, eroon kang & andrew leclair will give a lecture.';
+	const sentence2 = 'March 24, 2023, 3pm';
+	const sentence3 = 'Parsons School of design 63 5th ave, L101, New York, NY'
 	// const sentence = 'A';
 	
 	for(let each of sentence){
-		createLetter(each.toLowerCase());
+		createLetter(each.toLowerCase(), typeArea[0]);
+	}
+	for(let each of sentence2){
+		createLetter(each.toLowerCase(), typeArea[1]);
+	}
+	for(let each of sentence3){
+		createLetter(each.toLowerCase(), typeArea[2]);
 	}
 
-	function createLetter(alphabet){
+	function createLetter(alphabet, element){
 		let doNotPrint = `ilj:;|.'`
 
 		let letter = document.createElement('div');
 		letter.className = 'letter';
-		typeArea.appendChild(letter);
+		element.appendChild(letter);
 		for(let j=0; j<font[alphabet].length; j+=1){
 			let line = document.createElement('div');
 			line.className = 'row';
@@ -73,7 +83,7 @@
 
 				if(browserIs()=='Firefox') typeArea.style.lineHeight="1.1";
 
-				let style = window.getComputedStyle(typeArea, null).getPropertyValue('font-size');
+				let style = window.getComputedStyle(element, null).getPropertyValue('font-size');
 				let fontSize = parseFloat(style)*5; 
 				let pushIt = fontSize*0.05;
 				console.log(pushIt); 
@@ -82,7 +92,7 @@
 					char.style.left = pushIt*k*(-1)+'px';
 					char.innerHTML = font[alphabet][j][k]+`<span class='empty'>:</span>`;
 					line.appendChild(char);
-					doNotPrint.includes(font[alphabet][j][k]) ? char.classList.add("noSelect") : console.log() 
+					// doNotPrint.includes(font[alphabet][j][k]) ? char.classList.add("noSelect") : console.log() 
 				}
 				line.style.width = (line.offsetWidth+1) - (font[alphabet][j].length*pushIt*1.15)+'px';
 
@@ -93,7 +103,7 @@
 					char.innerHTML = font[alphabet][j][k];
 					line.appendChild(char);
 
-					doNotPrint.includes(font[alphabet][j][k]) ? char.classList.add("noSelect") : console.log() 
+					// doNotPrint.includes(font[alphabet][j][k]) ? char.classList.add("noSelect") : console.log() 
 				}
 
 			}
@@ -126,11 +136,11 @@
 	
 
 
-	const opts = `@—W%MmOQGNHwUCRDYKS&ABXPVETZF+=<>Lbdpq0123456789#$_?gahuneoJkc~–vszyx^*r!()-{}"ftI[],/\\|;:.jil'@`;
-	for(let each of opts){
-		let span = document.createElement('span');
-		span.className = 'letters'
-		span.innerHTML = each+`<span class="empty">.</span>`;
-		document.getElementById('typeArea2').appendChild(span);
-	}
+	// const opts = `@—W%MmOQGNHwUCRDYKS&ABXPVETZF+=<>Lbdpq0123456789#$_?gahuneoJkc~–vszyx^*r!()-{}"ftI[],/\\|;:.jil'@`;
+	// for(let each of opts){
+	// 	let span = document.createElement('span');
+	// 	span.className = 'letters'
+	// 	span.innerHTML = each+`<span class="empty">.</span>`;
+	// 	document.getElementById('typeArea2').appendChild(span);
+	// }
 
