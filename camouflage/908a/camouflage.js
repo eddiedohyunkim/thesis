@@ -72,7 +72,11 @@ window.onload = function(){
 			document.body.appendChild(paragraph);
 
 			let fontSize = getComputedStyle(document.querySelector('.paragraph')).getPropertyValue('font-size');
+			let lineHeit = getComputedStyle(document.querySelector('.paragraph')).getPropertyValue('line-height');
 			let pushIt = parseFloat(fontSize)/4;
+			document.getElementById('consol').innerHTML = `f=${fontSize}/${lineHeit}`;
+			
+
 
 			for(let letter of childrenText){
 				createLetter(letter.toLowerCase(), paragraph, isItTouch, getBrowser, pushIt);
