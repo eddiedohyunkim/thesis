@@ -11,6 +11,16 @@
 	font-family: FreeSans;
 	font-size: 16px;
 }
+
+@media (hover:none){
+	.paragraph{
+		color:#c2d7fb;
+	}
+	[hid]{
+		background-color: ;
+	}
+}
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 	.paragraph{
 			font-size: 11px;
@@ -68,5 +78,5 @@ i{
 }
 
 .selected{
-	background-color: gray;
+	background-color: #c2d7fb;
 }
