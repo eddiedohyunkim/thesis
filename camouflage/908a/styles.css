@@ -14,15 +14,15 @@
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 	.paragraph{
 			font-size: 11px;
-/*			line-height: 1.2;*/
+			line-height: 1.2;
 	}
 }
 
 /* iPhone [portrait + landscape] */
 @media only screen and (max-device-width: 480px) {
 	.paragraph{
-		font-size: 7px;
-/*		line-height: 1.2;*/
+		font-size: 6px;
+		line-height: 1.2;
 	}
 }
 
