@@ -12,10 +12,11 @@
 	font-size: 16px;
 }
 
+
 @media (hover:none){
 	.paragraph{
 		color:#c2d7fb;
-		color:#000;
+/*		color:#000;*/
 	}
 }
 
@@ -26,19 +27,12 @@
 	}
 }
 
-/* iPhone [portrait + landscape] */
 @media only screen and (max-device-width: 480px) {
 	.paragraph{
 		font-size: 6px;
 		line-height: 1.2;
 	}
 }
-
-/*@media all and (max-width: 1100px) { 
-	.paragraph{
-		font-size: 13px;
-	}
-}*/
 
 .grayscaleFilter{
 		filter: brightness(0);	
@@ -54,13 +48,13 @@ span{
   position: relative;
 }
 .paragraph{
-		-webkit-touch-callout: none; /* iOS Safari */
-		  -webkit-user-select: none; /* Safari */
-		   -khtml-user-select: none; /* Konqueror HTML */
-		     -moz-user-select: none; /* Old versions of Firefox */
-		      -ms-user-select: none; /* Internet Explorer/Edge */
-		          user-select: none; /* Non-prefixed version, currently
-		                                supported by Chrome, Edge, Opera and Firefox */
+		-webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		   -khtml-user-select: none;
+		     -moz-user-select: none;
+		      -ms-user-select: none;
+		          user-select: none;
+		                            
 }
 span{
 		-webkit-touch-callout: text;
