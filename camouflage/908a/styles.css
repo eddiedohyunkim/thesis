@@ -88,7 +88,7 @@ i{
 }
 @media only screen and (max-device-width: 480px) {
 	.console{
-		font-size: 9px;
+		font-size: 6px;
 	}
 }
 .console i{
