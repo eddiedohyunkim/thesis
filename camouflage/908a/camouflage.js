@@ -58,79 +58,103 @@ const font = {
 
 window.onload = function(){
 	const getText = document.querySelector('#text');
+	const getBrowser = browserNameIs(),
+		isItTouch = isTouchDevice();
+
 	if (getText.hasChildNodes()) {
   		for (const node of getText.children) {
-  			let childrenText = node.innerText
+  			let childrenText = node.innerText;
+  			console.log(childrenText);
 
-  			console.log(childrenText)
-  			let createSentence = document.createElement('div');
-			createSentence.className = 'typeArea';
-			document.body.appendChild(createSentence);
+  			let paragraph = document.createElement('div');
+			paragraph.className = 'paragraph';
+			if(!isItTouch){ paragraph.classList.add('grayscaleFilter') };
+			document.body.appendChild(paragraph);
 
 			for(let letter of childrenText){
-				createLetter(letter.toLowerCase(), createSentence);
+				createLetter(letter.toLowerCase(), paragraph, isItTouch, getBrowser);
 			}
   		}
 	}
 
-	const span_list = document.querySelectorAll('span[hid]');
-	const span_array = [...span_list];
-	const spanStartEnd = [];
-	span_array.forEach(char => {
-		document.addEventListener('selectionchange', () => {
-  			const selection = window.getSelection();
-  			const found = selection.containsNode(char);
-  			if(found){
-  				char.classList.add("selected");
-  			}else{
-  				char.classList.remove("selected");
-  			}
-		});	
-	});
+	if(isItTouch){
+		const glyphSpan_list = document.querySelectorAll('span[gl]');
+		const glyphSpan_array = [...glyphSpan_list];
+		glyphSpan_array.forEach(char => {
+			document.addEventListener('selectionchange', () => {
+  				const selection = window.getSelection();
+  				const found = selection.containsNode(char);
+  				if(found){
+  					char.classList.add("selected");
+  				}else{
+  					char.classList.remove("selected");
+  				}
+			});	
+		});
+	}
 }
 
 let fontSize = getComputedStyle(document.documentElement).getPropertyValue('--fontSize');
 let pushIt = parseFloat(fontSize)/4;
 
-function createLetter(alphabet, element){
+function createLetter(character, paragraph, isTouchScreen, browserIs){
+
 	let letter = document.createElement('div');
 	letter.className = 'letter';
-	element.appendChild(letter);
-	for(let j=0; j<font[alphabet].length; j+=1){
-		let doNotPrint = `ilj:;|.'`
-		let line = document.createElement('div');
-		line.className = 'row';
-		letter.appendChild(line);
+	paragraph.appendChild(letter);
+	
+	let glyphsOption = `ilj:;|.'`
+
+	for(let j=0; j<font[character].length; j+=1){
+		let row = document.createElement('div');
+		row.className = 'row';
+		letter.appendChild(row);
 		
+		if(isTouchScreen){
 
-		if( browserIs()=='Safari' || browserIs()=='Firefox' ){
-
-			
-			if(browserIs()=='Firefox') element.style.lineHeight="1.1";
-			for(let k=0; k<font[alphabet][j].length; k+=1){
+			for(let k=0; k<font[character][j].length; k+=1){
 				let char = document.createElement('span');
 				char.style.left = pushIt*k*(-1)+'px';
-				char.innerHTML = font[alphabet][j][k]+`<i>:</i>`;
-				line.appendChild(char);
-
-				if(doNotPrint.includes(font[alphabet][j][k]))char.setAttribute('hid','')
+				char.innerHTML = font[character][j][k]+`<i>:</i>`;
+				row.appendChild(char);
+	
+				if(glyphsOption.includes(font[character][j][k]))char.setAttribute('gl','');
 			}
-			line.style.width = (line.offsetWidth+1) - (font[alphabet][j].length*pushIt*1.15)+'px';
+			row.style.width = (row.offsetWidth+1) - (font[character][j].length*pushIt*1.15)+'px';
 
 		}else{
-			
-			for(let k=0; k<font[alphabet][j].length; k+=1){
-				let char = document.createElement('span');
-				char.innerHTML = font[alphabet][j][k];
-				line.appendChild(char);
-				if(doNotPrint.includes(font[alphabet][j][k]))char.setAttribute('hid','')
+
+			if(browserIs=='Safari' || browserIs=='Firefox'){
+				if(browserIs=='Firefox') paragraph.style.lineHeight="1.1";
+				for(let k=0; k<font[character][j].length; k+=1){
+					let char = document.createElement('span');
+					char.style.left = pushIt*k*(-1)+'px';
+					char.innerHTML = font[character][j][k]+`<i>:</i>`;
+					row.appendChild(char);
+				}
+				row.style.width = (row.offsetWidth+1) - (font[character][j].length*pushIt*1.15)+'px';
+
+			}else{
+				for(let k=0; k<font[character][j].length; k+=1){
+					let char = document.createElement('span');
+					char.innerHTML = font[character][j][k];
+					row.appendChild(char);
+				}
 			}
+
 		}
 	}
+
 }
 
-function browserIs(){
+function browserNameIs(){
 	const result = bowser.getParser(window.navigator.userAgent);
 	const browser = result.parsedResult.browser.name;
 	return browser
+}
+
+function isTouchDevice() {
+  return (('ontouchstart' in window) ||
+     (navigator.maxTouchPoints > 0) ||
+     (navigator.msMaxTouchPoints > 0));
 }

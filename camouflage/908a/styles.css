@@ -5,10 +5,13 @@
   font-family: FreeSans;
   src: url('../../ASSETS/freeSans-20120503-woff/FreeSans.woff');
 }
-.typeArea{
+.paragraph{
 	font-family: FreeSans;
 	font-size: calc(var(--fontSize));
 /*	filter: brightness(0);*/
+}
+.grayscaleFilter{
+		filter: brightness(0);	
 }
 .letter{
 	display: inline-block;
@@ -20,7 +23,7 @@
 span{
   position: relative;
 }
-.typeArea{
+.paragraph{
 		-webkit-touch-callout: none; /* iOS Safari */
 		  -webkit-user-select: none; /* Safari */
 		   -khtml-user-select: none; /* Konqueror HTML */
@@ -37,29 +40,11 @@ span{
 		      -ms-user-select: text;
 		          user-select: text;                         
 }
-.empty{
-	color: #ffffff00;
-}
 i{
 	font-style: normal;
 	color:#ffffff00;
 }
 
 .selected{
-	background-color: gray;
+	background-color: lightgray;
 }
-
-/*.test{
-	color:#b6d8ff;
-	mix-blend-mode: difference;
-	background-color: black;
-}
-
-
-.skyblue{
-	color:#b6d8ff;
-}
-
-#text{
-	color:#b6d8ff;
-}*/
