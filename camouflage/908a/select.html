@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.selected{
+			background-color: red;
+		}
+	</style>
+</head>
+
+<body>
+
+<p>Can you find the secret word?</p>
+<p>
+  Hmm, where <span hid>S</span> <span hid>j</span> could it
+  be?
+</p>
+<span hid>S</span><span hid>k</span><span hid>S</span><span hid>k</span>
+</body>
+<script>
+
+const span_list = document.querySelectorAll('span[hid]');
+	const span_array = [...span_list];
+	const spanStartEnd = [];
+	span_array.forEach(char => {
+		document.addEventListener('selectionchange', () => {
+  			const selection = window.getSelection();
+  			const found = selection.containsNode(char);
+  			if(found){
+  				char.classList.add("selected");
+  			}else{
+  				char.classList.remove("selected");
+  			}
+		});	
+});
+
+
+// Listen for selection changes
+
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
