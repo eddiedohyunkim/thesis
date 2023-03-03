@@ -74,12 +74,16 @@ window.onload = function(){
 			let fontSize = getComputedStyle(document.querySelector('.paragraph')).getPropertyValue('font-size');
 			let lineHeit = getComputedStyle(document.querySelector('.paragraph')).getPropertyValue('line-height');
 			let pushIt = parseFloat(fontSize)/4;
-			document.getElementById('consol').innerHTML = `f=${fontSize}/${lineHeit}`;
+			// document.getElementById('consol').innerHTML = `f=${fontSize}/${lineHeit}`;
 
 			for(let letter of childrenText){
 				createLetter(letter.toLowerCase(), paragraph, isItTouch, getBrowser, pushIt);
 			}
   		}
+  		const credit = document.createElement('p')
+  		credit.className = 'console'
+  		credit.innerHTML = `Poster, typeface <i>Camouflage</i> designed by <a href=mailto:'mailto:eddiekimdohyun@gmail.com'>Eddie Kim</a>`;
+  		document.body.appendChild(credit);
 	}
 
 	if(isItTouch){

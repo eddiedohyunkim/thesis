@@ -7,7 +7,7 @@
 }
 
 
-.paragraph{
+.paragraph, p{
 	font-family: FreeSans;
 	font-size: 16px;
 }
@@ -21,14 +21,14 @@
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-	.paragraph{
+	.paragraph, p{
 			font-size: 11px;
 			line-height: 1.2;
 	}
 }
 
 @media only screen and (max-device-width: 480px) {
-	.paragraph{
+	.paragraph, p{
 		font-size: 6px;
 		line-height: 1.2;
 	}
@@ -47,7 +47,7 @@
 span{
   position: relative;
 }
-.paragraph{
+.paragraph, .console{
 		-webkit-touch-callout: none;
 		  -webkit-user-select: none;
 		   -khtml-user-select: none;
@@ -68,7 +68,19 @@ i{
 	font-style: normal;
 	color:#ffffff00;
 }
-
 .selected{
 	background-color: #c2d7fb;
+}
+.console{
+	font-family: arial;
+	font-size: 12px;
+	margin:0;
+}
+.console i{
+	font-style: italic;
+	color:inherit;
+}
+a{
+	text-decoration: none;
+	color:#000;
 }
