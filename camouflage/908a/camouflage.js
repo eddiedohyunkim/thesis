@@ -82,7 +82,7 @@ window.onload = function(){
   		}
   		const credit = document.createElement('p')
   		credit.className = 'console'
-  		credit.innerHTML = `Poster, typeface <i>Camouflage</i> designed by <a href=mailto:'mailto:eddiekimdohyun@gmail.com'>Eddie Kim</a>`;
+  		credit.innerHTML = `Poster, typeface <i>Camouflage</i> designed by <a href='mailto:eddiekimdohyun@gmail.com'>Eddie Kim</a>`;
   		document.body.appendChild(credit);
 	}
 

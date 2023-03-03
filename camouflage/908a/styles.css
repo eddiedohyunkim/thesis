@@ -14,7 +14,7 @@
 
 
 @media (hover:none){
-	.paragraph{
+	.paragraph, .console{
 		color:#c2d7fb;
 /*		color:#000;*/
 	}
