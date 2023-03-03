@@ -166,3 +166,14 @@ function isTouchDevice() {
      (navigator.maxTouchPoints > 0) ||
      (navigator.msMaxTouchPoints > 0));
 }
+
+
+function selectAll(event) {
+    var range, selection;
+    var doc = document.body;
+        selection = window.getSelection();
+        range = document.createRange();
+        range.selectNodeContents(doc);
+        selection.removeAllRanges();
+        selection.addRange(range);
+};
