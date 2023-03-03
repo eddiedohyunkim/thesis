@@ -81,6 +81,11 @@ i{
 	font-size: 12px;
 	margin:0;
 }
+@media only screen and (max-device-width: 480px) {
+	.console{
+		font-size: 9px;
+	}
+}
 .console i{
 	font-style: italic;
 	color:inherit;
