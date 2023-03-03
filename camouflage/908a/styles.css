@@ -8,7 +8,7 @@
 .typeArea{
 	font-family: FreeSans;
 	font-size: calc(var(--fontSize));
-	filter: brightness(0);
+/*	filter: brightness(0);*/
 }
 .letter{
 	display: inline-block;
@@ -44,11 +44,9 @@ i{
 	font-style: normal;
 	color:#ffffff00;
 }
-.fake span{
-	color:#ffffff00;
-}
-.fake span::first-letter{
-	color:#000000;
+
+.selected{
+	background-color: red;
 }
 
 /*.test{

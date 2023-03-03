@@ -72,6 +72,21 @@ window.onload = function(){
 			}
   		}
 	}
+
+	const span_list = document.querySelectorAll('span[hid]');
+	const span_array = [...span_list];
+	const spanStartEnd = [];
+	span_array.forEach(char => {
+		document.addEventListener('selectionchange', () => {
+  			const selection = window.getSelection();
+  			const found = selection.containsNode(char);
+  			if(found){
+  				char.classList.add("selected");
+  			}else{
+  				char.classList.remove("selected");
+  			}
+		});	
+	});
 }
 
 let fontSize = getComputedStyle(document.documentElement).getPropertyValue('--fontSize');
@@ -82,19 +97,23 @@ function createLetter(alphabet, element){
 	letter.className = 'letter';
 	element.appendChild(letter);
 	for(let j=0; j<font[alphabet].length; j+=1){
+		let doNotPrint = `ilj:;|.'`
 		let line = document.createElement('div');
 		line.className = 'row';
 		letter.appendChild(line);
+		
+
 		if( browserIs()=='Safari' || browserIs()=='Firefox' ){
 
-			let doNotPrint = `ilj:;|.'`
+			
 			if(browserIs()=='Firefox') element.style.lineHeight="1.1";
 			for(let k=0; k<font[alphabet][j].length; k+=1){
 				let char = document.createElement('span');
 				char.style.left = pushIt*k*(-1)+'px';
 				char.innerHTML = font[alphabet][j][k]+`<i>:</i>`;
 				line.appendChild(char);
-				doNotPrint.includes(font[alphabet][j][k]) ? console.log() : char.classList.add("skyblue")
+
+				if(doNotPrint.includes(font[alphabet][j][k]))char.setAttribute('hid','')
 			}
 			line.style.width = (line.offsetWidth+1) - (font[alphabet][j].length*pushIt*1.15)+'px';
 
@@ -104,7 +123,7 @@ function createLetter(alphabet, element){
 				let char = document.createElement('span');
 				char.innerHTML = font[alphabet][j][k];
 				line.appendChild(char);
-				// doNotPrint.includes(font[alphabet][j][k]) ? char.classList.add("noSelect") : console.log() 
+				if(doNotPrint.includes(font[alphabet][j][k]))char.setAttribute('hid','')
 			}
 		}
 	}
