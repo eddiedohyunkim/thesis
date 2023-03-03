@@ -71,8 +71,11 @@ window.onload = function(){
 			if(!isItTouch){ paragraph.classList.add('grayscaleFilter') };
 			document.body.appendChild(paragraph);
 
+			let fontSize = getComputedStyle(document.querySelector('.paragraph')).getPropertyValue('font-size');
+			let pushIt = parseFloat(fontSize)/4;
+
 			for(let letter of childrenText){
-				createLetter(letter.toLowerCase(), paragraph, isItTouch, getBrowser);
+				createLetter(letter.toLowerCase(), paragraph, isItTouch, getBrowser, pushIt);
 			}
   		}
 	}
@@ -94,10 +97,9 @@ window.onload = function(){
 	}
 }
 
-let fontSize = getComputedStyle(document.documentElement).getPropertyValue('--fontSize');
-let pushIt = parseFloat(fontSize)/4;
 
-function createLetter(character, paragraph, isTouchScreen, browserIs){
+
+function createLetter(character, paragraph, isTouchScreen, browserIs, pushIt){
 
 	let letter = document.createElement('div');
 	letter.className = 'letter';
