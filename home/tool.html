@@ -7,6 +7,7 @@
 </head>
 <link rel="stylesheet" type="text/css" href="reset.css">
 <style type="text/css">
+	
 	body{
 		font-family: arial;
 		font-size: 18px;
@@ -18,33 +19,30 @@
    		left: 0;
    		bottom: 0;
    		width: 100vw;
-   		background-color: #e8e8e8;
+   		background-color: red;
    		cursor:default;
 	}
 	#toolbox_content{
 		display: flex;
    		flex-wrap: wrap;
-/*   		float:left;*/
-   		gap:2px;
-   		padding:2px;
-   		
+   		float:left;
+   		gap:8px;
+   		padding:8px;
+   		letter-spacing: 0.01em;
 	}
 	#toolbox_content > *{
-/*		letter-spacing: 0.01em;*/
 		vertical-align: middle;
-		padding:0 0.4em;
+		padding:0 0.3em;
 		display: inline-block;
-		height:1.4em;
-		line-height: 1.4em;
-		background-color: #000;
+		height:1.5em;
+		line-height: 1.5em;
+		background-color: #860000;
 /*		background-color: #222;*/
 /*		color:#eee;*/
-		color:#fff;
-/*		text-transform: uppercase;*/
+		color:red;
 	}
 	#toolbox_content > *:hover{
 		background-color: white;
-		color:black;
 	}
 	button{
 		border:0;
@@ -52,8 +50,27 @@
 		border-radius: 0;
 	}
 	#toolbox_content span{
-		background-color: #fff;
-		color:#000;
+		background-color: white;
+	}
+	
+
+	#sidebox{
+		position: fixed;
+   		left: 0;
+   		top: 0;
+   		width: fit-content;
+   		height:100%;
+   		background-color: red;
+   		display: flex;
+   		flex-wrap: wrap;
+   		float:left;
+   		gap:8px;
+   		padding:8px;
+   		cursor:default;
+	}
+	#sidebox button{
+		height:fit-content;
+		color:red;
 	}
 	#menu{
 		position: fixed;
