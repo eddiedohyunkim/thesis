@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		*, *:after, *:before{
+			box-sizing: border-box;
+		}
+		@font-face{
+			font-family: "ArialMonospace";
+			src:url("../assets/fonts/arial_monospace.ttf");
+		}
+		body{
+			font-family:Arial;
+		}
+		section{
+			max-width: 30em;
+			margin:auto;
+		}
+		figure{
+			width:fit-content;
+			margin: auto;
+/*			outline:1px solid red;*/
+		}
+		.mediaboxlarge{
+			margin: 1em;
+			position: relative;
+/*			padding:1rem;*/
+			width:fit-content;
+/*			outline:1px solid blue;*/
+		}
+		.deco:before, .deco:after{
+			content:"";
+    		position: absolute;
+    		width: 1rem;
+    		height: 1rem;
+		}
+		.mediabox:before{
+			border-top: 0.5px solid;
+			border-right: 0.5px solid;
+			bottom: calc( -1rem - 1px);
+    		left: calc( -1rem - 1px);
+		}
+		.mediabox:after{
+			border-top: 0.5px solid;
+			border-left: 0.5px solid;
+			bottom: calc( -1rem - 1px);
+    		right: calc( -1rem - 1px);
+		}
+		.mediabox-deco:before{
+			border-bottom: 0.5px solid;
+			border-right: 0.5px solid;
+			top: calc( -1rem - 1px);
+    		left: calc( -1rem - 1px);
+		}
+		.mediabox-deco:after{
+			border-bottom: 0.5px solid;
+			border-left: 0.5px solid;
+			top: calc( -1rem - 1px);
+    		right: calc( -1rem - 1px);
+		}
+
+
+		figcaption{
+			margin-top:1em;
+			text-align: center;
+		}
+		span{
+			margin:0;
+			padding:0;
+			font-size: 200px;
+			display: block;
+			line-height: 1;
+
+			align-items: center;
+    		display: flex;
+    		position: relative;
+    		text-align: center;
+/*			outline:1px solid green;*/
+		}
+		[contenteditable] {
+  			outline: 0px solid transparent;
+		}
+
+		#width, #height{
+			font-family: ArialMonospace;
+			font-size: 0.8em;
+			position: absolute;
+			line-height: 1;
+
+/*			background-color: red;*/
+		}
+		#width{
+			top:-1em;
+			width:100%;
+			text-align: center;
+/*			border-bottom: 0.5px dashed;*/
+		}
+		#height{
+			left:-1em;
+			height:100%;
+			text-orientation: mixed;
+    		transform: rotate(180deg);
+    		writing-mode: vertical-lr;
+    		text-align: center;
+		}
+		p{	
+			text-align: center;
+			font-size: 50px;
+		}
+	</style>
+</head>
+<body>
+	<p>Input Type</p>
+	<section>
+			<figure>
+				<div class="mediaboxlarge">
+					<div id="width"></div>
+					<div id="height"></div>
+					<div class="mediabox deco" id="item">
+						<div class="mediabox-deco deco"></div>
+						<span id="t" contenteditable>A</span>
+					</div>
+				</div>
+				<figcaption>Description</figcaption>
+			</figure>
+	</section>
+	<script type="text/javascript">
+
+		document.querySelector('#t').addEventListener("input", (event) => {
+			reportDimension(document.querySelector('#item'))	
+		})
+
+		addEventListenerMulti(window, 'load resize', (event) => {
+			reportDimension(document.querySelector('#item'))
+		})
+		function reportDimension(element){
+			let width = element.offsetWidth;
+			let height = element.offsetHeight;
+			document.querySelector('#width').innerHTML = width;
+			document.querySelector('#height').innerHTML = height;
+		}
+
+		function addEventListenerMulti(el, s, fn) {
+  			s.split(' ').forEach(e => el.addEventListener(e, fn, false));
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<link rel="stylesheet" type="text/css" href="reset.css">
+<style type="text/css">
+	body{
+		font-family: arial;
+		font-size: 18px;
+
+/*		background-color: green;*/
+	}
+	#toolbox{
+		position: fixed;
+   		left: 0;
+   		bottom: 0;
+   		width: 100vw;
+   		background-color: #e8e8e8;
+   		cursor:default;
+	}
+	#toolbox_content{
+		display: flex;
+   		flex-wrap: wrap;
+/*   		float:left;*/
+   		gap:2px;
+   		padding:2px;
+   		
+	}
+	#toolbox_content > *{
+/*		letter-spacing: 0.01em;*/
+		vertical-align: middle;
+		padding:0 0.4em;
+		display: inline-block;
+		height:1.4em;
+		line-height: 1.4em;
+		background-color: #000;
+/*		background-color: #222;*/
+/*		color:#eee;*/
+		color:#fff;
+/*		text-transform: uppercase;*/
+	}
+	#toolbox_content > *:hover{
+		background-color: white;
+		color:black;
+	}
+	button{
+		border:0;
+		font-size: inherit;
+		border-radius: 0;
+	}
+	#toolbox_content span{
+		background-color: #fff;
+		color:#000;
+	}
+	#menu{
+		position: fixed;
+   		left: 0;
+   		top: 0;
+   		width: 100%;
+   		background-color: #e8e8e8;
+   		padding:calc(4px + 0.5em);
+   		cursor:default;
+   		letter-spacing: 0.01em;
+	}
+/*	#menu > *{
+		display: none;
+	}
+	#menu *:hover{
+		display: block;
+	}*/
+	ul{
+		margin: 0;
+		padding-left:1em;
+	}
+</style>
+<body>
+	<header>
+		<div id="menu">
+			<p>Input Type</p>
+<!-- 			<ul>
+				<li>Typefaces</li>
+				<li>Information</li>
+				<li>Typewriter</li>
+			</ul> -->
+		</div>
+	</header>
+	<!-- <div id="sidebox">
+		<button>1</button>
+	</div> -->
+	<footer>
+		<div id="toolbox">
+			<div id="toolbox_content">
+				<span>Tool Box</span><button>Cursor</button><button>Touch</button><button>Camera</button><button>Microphone</button><button>Gyroscope</button>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

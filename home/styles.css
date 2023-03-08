@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face{
+      font-family: "Replica";
+      src:url("assets/replica/Replica-Regular.otf");
+    }
+
+body {
+  font-family: Replica;
+  -webkit-font-smoothing: antialiased;
+  margin:1ex;
+  font-size: 24px;
+/*  background-color: green;*/
+}
+
+.side-bar {
+  width: 100vw;
+  position: fixed;
+  top:0;
+  padding-top:0.7ex;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+p{
+/*  text-align: center;*/
+/*  font-family: arial;*/
+/*  letter-spacing: 0.01em;*/
+/*  word-spacing: -0.1em;*/
+}
+.systemfont{
+  font-family: sans-serif;
+  vertical-align: middle;
+}
+.lower{
+  vertical-align: middle;
+}
+.blue{
+/*  color:#0000ff;*/
+}
+
+
+
+.main-content {
+  margin-top: 4em;
+  width:100%;
+}
+
+section {
+/*  background-color: #fff;*/
+  padding-top:4em;
+  padding-bottom:4em;
+  margin:0;
+/*  border-top:0.1em solid;*/
+/*  padding:4em;*/
+}
+
+section:nth-of-type(2n) {
+/*  background-color: #f2f2f2;*/
+}
+
+section:last-of-type {
+  height: 100vh;
+}
+
+figure{
+  display: block;
+  width:50%;
+  height:auto;
+/*  height:80%;*/
+  margin:auto;
+/*  outline:1px solid red;*/
+  transition: width 0.2s;
+}
+figcaption{
+/*  font-family: arial;*/
+  font-size: 22px;
+  text-align: center;
+/*  margin-top: 1em;*/
+  margin-bottom: 1ex;
+/*  opacity: 0;*/
+/*  transition: opacity 0.2s;*/
+}
+img, video{
+  width:100%;
+}
+
+h1 {
+  display:block;
+  font-size: 100px;
+  font-weight: normal;
+  text-align:center;
+/*  border:1px solid red;*/
+  width:fit-content;
+  margin: auto;
+  transition: transform 0.2s;
+}
+
+.text-current{
+  opacity: 1;
+}
+.current {
+  width: 75%;
+}
+.current video{
+  position: relative;
+  z-index: 900;
+}
+
+/*.active:hover {
+  width: 85%;
+}*/

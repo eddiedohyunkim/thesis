@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Camouflage</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<style>
+		@font-face{
+			font-family: "ArialMonospace";
+			src:url("assets/fonts/arial_monospace.ttf");
+		}
+		@font-face{
+			font-family: "FreeSans";
+			src:url("assets/fonts/freeSans-20120503-woff/FreeSans.woff");
+		}
+		
+		@font-face{
+			font-family: "Replica";
+			src:url("assets/fonts/replica/Replica-Regular.otf");
+		}
+		html{
+			font-size: 22px;
+		}
+		body{
+
+			font-family: Replica;
+/*			-webkit-text-stroke-width: 1px;*/
+/*  			-webkit-text-stroke-color: black;*/
+			font-weight: normal;
+			letter-spacing: 0.02rem;
+			line-height: 1.2;
+			margin:1em;
+		}
+		article{
+			max-width:36em;
+			margin:auto;
+			margin-bottom: 2em;
+		}
+		h1[section]:before{
+			content:attr(section)'.';
+			display: inline-block;
+			position: absolute;
+			margin-left: -1.2rem;
+		}
+		section{
+			margin-bottom: 2.4em;
+		}
+		h1, h2{
+			margin-bottom: 0.8em;
+		}
+		figure{
+			width:fit-content;
+			margin: auto;
+		}
+
+		figure div{
+			position: relative;
+		}
+		.mediaboxlarge{
+			padding:1rem;
+		}
+		.mediabox:before{
+			content:"";
+			border-top: thin solid;
+			border-right: thin solid;
+    	position: absolute;
+    	width: 1rem;
+    	height: 1rem;
+			bottom: calc( -1rem - 1px);
+    	left: calc( -1rem - 1px);
+		}
+		.mediabox:after{
+			content:"";
+			border-top: thin solid;
+			border-left: thin solid;
+    	position: absolute;
+    	width: 1rem;
+    	height: 1rem;
+			bottom: calc( -1rem - 1px);
+    	right: calc( -1rem - 1px);
+		}
+		.mediabox-deco:before{
+			content:"";
+			border-bottom: thin solid;
+			border-right: thin solid;
+    	position: absolute;
+    	width: 1rem;
+    	height: 1rem;
+			top: calc( -1rem - 1px);
+    	left: calc( -1rem - 1px);
+		}
+
+		.mediabox-deco:after{
+			content:"";
+			border-bottom: thin solid;
+			border-left: thin solid;
+    	position: absolute;
+    	width: 1rem;
+    	height: 1rem;
+			top: calc( -1rem - 1px);
+    	right: calc( -1rem - 1px);
+		}
+
+
+		figcaption{
+			text-align: center;
+			font-size: 0.8em;
+			margin-top: 0.8em;
+		}
+
+		table{
+			font-family: FreeSans;
+			margin-bottom: 2em;
+		}
+		caption, h3{
+			font-family: Arial;
+			text-align: left;
+			font-size: 0.8em;
+			margin-bottom: 0.8em;
+			line-height: 1;
+		}
+		span[class="key"]{
+			vertical-align: middle;
+    	font-size: 0.8em;
+    	background-color: gainsboro;
+    	-webkit-box-shadow: 0 0 0 0.1rem gainsboro;
+    	box-shadow: 0 0 0 0.1rem gainsboro;
+    	padding: 0.0rem 0.2rem;
+    	margin-top: -0.2em;
+    	border-radius: 3px;
+		}
+		span[color]{
+			background-color: lawngreen;
+			-webkit-box-shadow: 0 0 0 0.1rem lawngreen;
+    	box-shadow: 0 0 0 0.1rem lawngreen;
+		}
+		th{
+			padding: 0.1em 0.4em;
+			border:thin solid lightgray;
+		}
+		td{
+			font-size: 1.2em;
+			border:1px solid lightgray;
+			text-align: center;
+			padding: 0.5em 0em;
+/*			width:2rem;*/
+			min-width:2.4rem;
+		}	
+		td[class="function-key"]{
+			font-size: 0.8em;
+			padding: 1em 0;
+		}
+		td[unavailable-char]{
+			background-image: url("assets/images/d3d3d3-2px-diagonal.svg");
+  		background-repeat: repeat;
+  		color:lightgray;
+		}
+		pre, code {
+			font-family: ArialMonospace;
+			font-size: 0.7rem;
+			line-height: 1.5;
+			display: block;
+		}
+		pre{
+			background-color: lawngreen;
+			tab-size: 2;
+			word-break: normal;
+			hyphens: none;
+			position: relative;
+			overflow: hidden;
+			margin:0;
+		}
+		pre code{
+			padding: 1em 1.2em;
+    	overflow-x: auto;
+    	width
+    	max-width: calc(100% - 1.2em);
+		}
+
+	</style>
+</head>
+<body>
+
+<article style="margin-bottom: 0;">
+		<h1 section="A" style="margin-bottom: 0.2em; color:lightgray;">About</h1>
+		<h1 section="B" style="margin-bottom: 0.2em; color:lightgray;">Ways of Seeing</h1>
+</article>
+<article>
+		<h1 section="C">Specimen</h1>
+
+		<h2 style="margin-bottom: 0.2em; color:lightgray;">(Some Typeface Showcase)</h2>
+
+	<section>
+		<h2>Glyphs</h2>
+			<figure>
+				<div class="mediaboxlarge">
+					<div class="mediabox">
+						<div class="mediabox-deco"></div>
+						<div id="textArea"></div>
+					</div>
+				</div>
+				<figcaption>Camouflage Character Letter “A”</figcaption>
+			</figure>
+	</section>
+
+	<section>
+			<h2>Glyphs HTML Structure</h2>
+			<pre><code>&lt;div class="letterCont letter-A"&gt;
+	&lt;div class="row1"&gt;...&lt;/div&gt;
+	&lt;div class="row2"&gt;...&lt;/div&gt;
+	&lt;div class="row3"&gt;...&lt;/div&gt;
+	&lt;div class="row4"&gt;...&lt;/div&gt;
+	&lt;div class="row5"&gt;...&lt;/div&gt;
+	&lt;div class="row6"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+	</section>
+
+	<section>
+		<h2>Browser Compatibility</h2>
+		<table>
+			<tr>
+				<th>Chrome</th>
+				<th>Edge</th>
+				<th>Firefox</th>
+				<th>Opera</th>
+				<th>Safari</th>
+			</tr>
+		</table>
+	</section>
+
+	<section>
+		<h2>Available Glyph Keys</h2>	
+		<table>
+			<caption>Keyboard: <span class="key">keys</span></caption>
+ 			<tr>
+ 				<td id='char-grv' unavailable-char>`</td>
+  			<td id='char-1'>1</td>
+  			<td id='char-2'>2</td>
+  			<td id='char-3'>3</td>
+  			<td id='char-4'>4</td>
+  			<td id='char-5'>5</td>
+  			<td id='char-6'>6</td>
+  			<td id='char-7'>7</td>
+  			<td id='char-8'>8</td>
+  			<td id='char-9'>9</td>
+  			<td id='char-0'>0</td>
+  			<td id='char-min'>-</td>
+  			<td id='char-eql'>=</td>
+  		</tr>
+  		<tr>
+  			<td id='char-Q' unavailable-char>q</td>
+  			<td id='char-W' unavailable-char>w</td>
+  			<td id='char-E' unavailable-char>e</td>
+  			<td id='char-R' unavailable-char>r</td>
+  			<td id='char-T' unavailable-char>t</td>
+  			<td id='char-Y' unavailable-char>y</td>
+  			<td id='char-U' unavailable-char>u</td>
+  			<td id='char-I' unavailable-char>i</td>
+  			<td id='char-O' unavailable-char>o</td>
+  			<td id='char-P' unavailable-char>p</td>
+  			<td id='char-obr' unavailable-char>[</td>
+  			<td id='char-cbr' unavailable-char>]</td>
+  			<td id='char-bsl' unavailable-char>\</td>
+  		</tr>
+  		<tr>
+  			<td id='char-A' unavailable-char>a</td>
+  			<td id='char-S' unavailable-char>s</td>
+  			<td id='char-D' unavailable-char>d</td>
+  			<td id='char-F' unavailable-char>f</td>
+  			<td id='char-G' unavailable-char>g</td>
+  			<td id='char-H' unavailable-char>h</td>
+  			<td id='char-J' unavailable-char>j</td>
+  			<td id='char-K' unavailable-char>k</td>
+  			<td id='char-L' unavailable-char>l</td>
+  			<td id='char-scl'>;</td>
+  			<td id='char-sqt' unavailable-char>'</td>
+  		</tr>
+  		<tr>
+  			<td id='char-Z' unavailable-char>z</td>
+  			<td id='char-X' unavailable-char>x</td>
+  			<td id='char-C' unavailable-char>c</td>
+  			<td id='char-V' unavailable-char>v</td>
+  			<td id='char-B' unavailable-char>b</td>
+  			<td id='char-N' unavailable-char>n</td>
+  			<td id='char-M' unavailable-char>m</td>
+  			<td id='char-com'>,</td>
+  			<td id='char-prd'>.</td>
+  			<td id='char-sls'>/</td>
+  		</tr>
+  		<tr>
+  			<td colspan="5" id="char-spc" class="function-key">space</td>
+  		</tr>
+		</table>
+
+		<table>
+			<caption>Keyboard: <span class="key">shift</span> + <span class="key">keys</span></caption>
+			<tr>
+				<td id='char-tld' unavailable-char>~</td>
+  		  <td id='char-exc'>!</td>
+  		  <td id='char-ats'>@</td>
+  		  <td id='char-hsh'>#</td>
+  		  <td id='char-dlr'>$</td>
+  		  <td id='char-prc'>%</td>
+  		  <td id='char-ccf'unavailable-char>^</td>
+  		  <td id='char-and'>&</td>
+  		  <td id='char-atr' unavailable-char>*</td>
+  		  <td id='char-opr'>(</td>
+  		  <td id='char-cpr'>)</td>
+  		  <td id='char-uds'>_</td>
+  			<td id='char-pls'>+</td>
+  		</tr>
+  		<tr>
+  			<td id='char-Q'>Q</td>
+  			<td id='char-W'>W</td>
+  			<td id='char-E'>E</td>
+  			<td id='char-R'>R</td>
+  			<td id='char-T'>T</td>
+  			<td id='char-Y'>Y</td>
+  			<td id='char-U'>U</td>
+  			<td id='char-I'>I</td>
+  			<td id='char-O'>O</td>
+  			<td id='char-P'>P</td>
+  			<td id='char-ocb' unavailable-char>{</td>
+  			<td id='char-ccb' unavailable-char>}</td>
+  			<td id='char-pip' unavailable-char>|</td>
+  		</tr>
+  		<tr>
+  			<td id='char-A'>A</td>
+  			<td id='char-S'>S</td>
+  			<td id='char-D'>D</td>
+  			<td id='char-F'>F</td>
+  			<td id='char-G'>G</td>
+  			<td id='char-H'>H</td>
+  			<td id='char-J'>J</td>
+  			<td id='char-K'>K</td>
+  			<td id='char-L'>L</td>
+  			<td id='char-col'>:</td>
+  			<td id='char-dqt'>"</td>
+  		</tr>
+  		<tr>
+  			<td id='char-Z'>Z</td>
+  			<td id='char-X'>X</td>
+  			<td id='char-C'>C</td>
+  			<td id='char-V'>V</td>
+  			<td id='char-B'>B</td>
+  			<td id='char-N'>N</td>
+  			<td id='char-M'>M</td>
+  			<td id='char-lst'>&lt;</td>
+  			<td id='char-grt'>&gt;</td>
+  			<td id='char-qst'>?</td>
+  		</tr>
+  	</table>
+
+  	<table>
+			<caption>Keyboard: <span class="key">option</span> + <span class="key">keys</span></caption>
+			<tr>
+				<td id='char-tld' unavailable-char>`</td>
+  		  <td id='char-exc' >¡</td>
+  		  <td id='char-ats' unavailable-char>™</td>
+  		  <td id='char-hsh'>£</td>
+  		  <td id='char-dlr'>¢</td>
+  		  <td id='char-prc'>∞</td>
+  		  <td id='char-ccf'>§</td>
+  		  <td id='char-and'>¶</td>
+  		  <td id='char-atr'>•</td>
+  		  <td id='char-opr'unavailable-char>ª</td>
+  		  <td id='char-cpr'unavailable-char>º</td>
+  		  <td id='char-uds'>–</td>
+  			<td id='char-pls'>≠</td>
+  		</tr>
+  		<tr>
+  			<td id='char-Q'>œ</td>
+  			<td id='char-W'>∑</td>
+  			<td id='char-E'unavailable-char>´</td>
+  			<td id='char-R'>®</td>
+  			<td id='char-T'>†</td>
+  			<td id='char-Y'>¥</td>
+  			<td id='char-U'unavailable-char>¨</td>
+  			<td id='char-I'unavailable-char>ˆ</td>
+  			<td id='char-O'>ø</td>
+  			<td id='char-P'>π</td>
+  			<td id='char-ocb'>“</td>
+  			<td id='char-ccb'>‘</td>
+  			<td id='char-pip'>«</td>
+  		</tr>
+  		<tr>
+  			<td id='char-A'>å</td>
+  			<td id='char-S'>ß</td>
+  			<td id='char-D'>∂</td>
+  			<td id='char-F'>ƒ</td>
+  			<td id='char-G'>©</td>
+  			<td id='char-H'unavailable-char>˙</td>
+  			<td id='char-J'>∆</td>
+  			<td id='char-K'unavailable-char>˚</td>
+  			<td id='char-L'unavailable-char>¬</td>
+  			<td id='char-col'>…</td>
+  			<td id='char-dqt'>æ</td>
+  		</tr>
+  		<tr>
+  			<td id='char-Z'>Ω</td>
+  			<td id='char-X'>≈</td>
+  			<td id='char-C'>ç</td>
+  			<td id='char-V'>√</td>
+  			<td id='char-B'>∫</td>
+  			<td id='char-N'unavailable-char>˜</td>
+  			<td id='char-M'>µ</td>
+  			<td id='char-lst'>≤</td>
+  			<td id='char-grt'>≥</td>
+  			<td id='char-qst'>÷</td>
+  		</tr>
+  	</table>
+
+  	<table>
+			<caption>Keyboard: <span class="key">option</span> + <span class="key">shift</span> + <span class="key">keys</span></caption>
+			<tr>
+				<td id='char-tld'unavailable-char>`</td>
+  		  <td id='char-exc'>⁄</td>
+  		  <td id='char-ats'unavailable-char>€</td>
+  		  <td id='char-hsh'unavailable-char>‹</td>
+  		  <td id='char-dlr'unavailable-char>›</td>
+  		  <td id='char-prc'>ﬁ</td>
+  		  <td id='char-ccf'>ﬂ</td>
+  		  <td id='char-and'>‡</td>
+  		  <td id='char-atr'unavailable-char>°</td>
+  		  <td id='char-opr'unavailable-char>·</td>
+  		  <td id='char-cpr'unavailable-char>‚</td>
+  		  <td id='char-uds'>—</td>
+  			<td id='char-pls'>±</td>
+  		</tr>
+  		<tr>
+  			<td id='char-Q'>Œ</td>
+  			<td id='char-W'unavailable-char>„</td>
+  			<td id='char-E'unavailable-char>´</td>
+  			<td id='char-R'>‰</td>
+  			<td id='char-T'unavailable-char>ˇ</td>
+  			<td id='char-Y'>Á</td>
+  			<td id='char-U'unavailable-char>¨</td>
+  			<td id='char-I'unavailable-char>ˆ</td>
+  			<td id='char-O'>Ø</td>
+  			<td id='char-P'>∏</td>
+  			<td id='char-ocb'>”</td>
+  			<td id='char-ccb'>’</td>
+  			<td id='char-pip'>»</td>
+  		</tr>
+  		<tr>
+  			<td id='char-A'>Å</td>
+  			<td id='char-S'>Í</td>
+  			<td id='char-D'>Î</td>
+  			<td id='char-F'>Ï</td>
+  			<td id='char-G'unavailable-char>˝</td>
+  			<td id='char-H'>Ó</td>
+  			<td id='char-J'>Ô</td>
+  			<td id='char-K'></td>
+  			<td id='char-L'>Ò</td>
+  			<td id='char-col'>Ú</td>
+  			<td id='char-dqt'>Æ</td>
+  		</tr>
+  		<tr>
+  			<td id='char-Z'unavailable-char>¸</td>
+  			<td id='char-X'unavailable-char>˛</td>
+  			<td id='char-C'>Ç</td>
+  			<td id='char-V'unavailable-char>◊</td>
+  			<td id='char-B'>ı</td>
+  			<td id='char-N'unavailable-char>˜</td>
+  			<td id='char-M'>Â</td>
+  			<td id='char-lst'unavailable-char>¯</td>
+  			<td id='char-grt'unavailable-char>˘</td>
+  			<td id='char-qst'>¿</td>
+  		</tr>
+  	</table>
+
+	</section>
+</article>
+
+</body>
+<script src="https://unpkg.com/bowser@2.11.0/es5.js"></script>
+<script type="text/javascript" src="script-fonts/camouflage.js"></script>
+</html>
