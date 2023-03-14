@@ -11,6 +11,9 @@ html * {
   font-family: FreeSans;
   src: url('../../ASSETS/freeSans-20120503-woff/FreeSans.woff');
 }
+body{
+	margin:8px;
+}
 
 .paragraph, p{
 	font-family: FreeSans;
@@ -72,7 +75,7 @@ i{
 	color:#ffffff00;
 }
 .selected{
-	background-color: #c2d7fb;
+	background-color: #c2d7fbaa;
 }
 
 

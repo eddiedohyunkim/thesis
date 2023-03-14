@@ -1,13 +1,12 @@
-let getCurrentScript = document.querySelector('script[font="camouflage"]');
-let browserDetector = document.createElement('script');
-browserDetector.src = 'https://unpkg.com/bowser@2.11.0/es5.js';
-document.body.insertBefore(browserDetector, getCurrentScript);
+const getCurrentScript = document.currentScript;
+const addThisScriptBefore = document.createElement('script');
+addThisScriptBefore.src = 'https://unpkg.com/bowser@2.11.0/es5.js';
+document.body.insertBefore(addThisScriptBefore, getCurrentScript);
 
-// const preText = document.createElement('p');
-// preText.className = "console";
-// preText.setAttribute("onclick", "selectAll()");
-// preText.innerHTML = "Select All ↴";
-// document.body.insertBefore(document.querySelector('#text'), preText);
+const addFontStyle = document.createElement('link');
+addFontStyle.rel = "stylesheet";
+addFontStyle.href = "camouflage.css";
+document.head.appendChild(addFontStyle);
 
 const font = {
 	'a': [`rW—ll:.i%@`,`zLNi:|Gj'iUS`,`#M|i:$Wji|—`,`Wj:'.ji';i|j|il:.T`,`x::iMOmGil;i`,'@—W%%M'],
@@ -65,14 +64,14 @@ const font = {
 window.onload = function(){
 	const getText = document.querySelector('#text');
 	const getBrowser = browserNameIs(),
-		isItTouch = isTouchDevice();
+				isItTouch = isTouchDevice();
 
 	if (getText.hasChildNodes()) {
-  		for (const node of getText.children) {
-  			let childrenText = node.innerText;
-  			console.log(childrenText);
+  	for (const node of getText.children) {
+  		let childrenText = node.innerText;
+  		console.log(childrenText);
 
-  			let paragraph = document.createElement('div');
+  		let paragraph = document.createElement('div');
 			paragraph.className = 'paragraph';
 			if(!isItTouch){ paragraph.classList.add('grayscaleFilter') };
 			document.body.appendChild(paragraph);
@@ -85,7 +84,7 @@ window.onload = function(){
 			for(let letter of childrenText){
 				createLetter(letter.toLowerCase(), paragraph, isItTouch, getBrowser, pushIt);
 			}
-  		}
+  	}
 	}
 
 	if(isItTouch){
@@ -168,14 +167,3 @@ function isTouchDevice() {
      (navigator.maxTouchPoints > 0) ||
      (navigator.msMaxTouchPoints > 0));
 }
-
-
-function selectAll(event) {
-    var range, selection;
-    var doc = document.body;
-        selection = window.getSelection();
-        range = document.createRange();
-        range.selectNodeContents(doc);
-        selection.removeAllRanges();
-        selection.addRange(range);
-};

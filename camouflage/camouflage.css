@@ -1,0 +1,54 @@
+:root {
+  --fontSize: 120px;
+}
+html * {
+	-webkit-text-size-adjust: 100%; 
+	   -moz-text-size-adjust: 100%; 
+	    -ms-text-size-adjust: 100%; 
+	        text-size-adjust: 100%;
+}
+@font-face{
+  font-family: FreeSans;
+  src: url('../ASSETS/freeSans-20120503-woff/FreeSans.woff');
+}
+
+.paragraph{
+	font-family: FreeSans;
+	font-size: calc(var(--fontSize) / 6);
+}
+.grayscaleFilter{
+		filter: brightness(0);	
+}
+.letter{
+	display: inline-block;
+	width: fit-content;
+}
+.row{
+  display: flex;
+}
+span{
+  position: relative;
+}
+.paragraph, .console{
+		-webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		   -khtml-user-select: none;
+		     -moz-user-select: none;
+		      -ms-user-select: none;
+		          user-select: none;                     
+}
+span{
+		-webkit-touch-callout: text;
+		  -webkit-user-select: text;
+		   -khtml-user-select: text;
+		     -moz-user-select: text;
+		      -ms-user-select: text;
+		          user-select: text;                         
+}
+i{
+	font-style: normal;
+	color:#ffffff00;
+}
+.selected{
+	background-color: #c2d7fb;
+}
