@@ -22,7 +22,7 @@ body{
 
 @media (hover:none){
 	.paragraph, .console{
-		color:#c2d7fb;
+		color:#b1cdfa;
 	}
 }
 
@@ -75,7 +75,7 @@ i{
 	color:#ffffff00;
 }
 .selected{
-	background-color: #c2d7fbaa;
+	background-color: #c2d7fb;
 }
 
 
