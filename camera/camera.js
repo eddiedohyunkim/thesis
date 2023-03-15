@@ -65,15 +65,15 @@ const constraints = {
 	video:{
 		facingMode: "user", 
 		frameRate: { min: 20, ideal: 30, max: 60 },
-    	width: { exact: 640 },
-    	height: { exact: 360 }
+    	width: { ideal: 320, max: 320 }
+    	// height: { exact: 360 }
 	}
 };
 const constraints2 = {
 	facingMode: "user", 
-	frameRate: {exact: 3},
-	width: { exact: 640 },
-    height: { exact: 360 }
+	frameRate: {ideal: 3},
+	width: { ideal: 320, max: 320 }
+    // height: { exact: 360 }
 };
 
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
