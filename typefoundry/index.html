@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<style type="text/css">
+	body{
+		margin: 0;
+		font-family: Times;
+		padding-bottom: 100px;
+	}
+	.mac-os-window{
+		box-sizing: border-box;
+		box-shadow: 0px 1.8px 1.1px rgba(0, 0, 0, 0.015),
+					0px 4px 2.5px rgba(0, 0, 0, 0.046),
+					0px 7px 4.3px rgba(0, 0, 0, 0.088),
+					0px 11.4px 7.2px rgba(0, 0, 0, 0.137),
+					0px 16.6px 12.1px rgba(0, 0, 0, 0.187),
+					0px 20px 20px rgba(0, 0, 0, 0.23);
+		border-bottom-left-radius: 10px 10px;
+		border-bottom-right-radius: 10px 10px;
+		border-bottom:0.1px solid;
+/*		border-bottom:16px solid;*/
+	}
+	.container{
+		padding:0 32px 64px 32px;
+/*		outline:1px solid #00ff00;*/
+	}
+	ul{
+		width:fit-content;
+	}
+	ul, ol{
+		margin:0;
+		line-height: 1;
+		padding-left: 1rem;
+		list-style: none;
+	}
+	.sans{
+		font-family: Arial;
+		font-size: 0.9em;
+	}
+	.paragraph{
+/*		padding: 32px;*/
+/*		width:;*/
+		display: inline-block;
+/*		border-top: 1px dashed;*/
+		border: 1px solid #e0e0e0;
+/*		border-bottom: 1px dashed;*/
+/*		background-color: #eee;*/
+	border-radius: 4px;
+		padding:16px;
+/*		margin: auto;*/
+		margin-bottom: 32px;
+/*		outline:1px solid red;*/
+	}
+	.font-information{
+		display: flex;
+		column-gap: 2em;
+	}
+	.font-information div{
+		max-width:20em;
+	}
+	.tab{
+		padding:32px;
+		line-height: 1;
+/*		outline:1px solid blue;*/
+	}
+	.instruction{
+		background-color: #d6e7f2;
+/*		width:fit-content;*/
+		padding: 16px;
+/*		padding-top: 32px;*/
+		margin-bottom: 32px;
+	}
+	.instruction ol{
+		font-size: 48px;
+		margin:auto;
+		padding:0;
+		width:fit-content;
+	}
+	.instruction ol { 
+    	counter-reset: item;
+    	list-style-type: none;
+	}
+	.instruction li { 
+		display: inline-block; 
+		margin-right: 0.5em;
+	}
+	.instruction li:last-child{
+		margin-right: 0;
+	}
+	.instruction li:before {
+		display: block;
+	    content: counter(item); 
+	    counter-increment: item 
+	}
+
+	.icon {
+	  	height: 200px;
+	  	width: 200px;
+	  	line-height: 200px;
+	  	text-align: center;
+	  	margin-right: 2px;
+	  	overflow: hidden;
+	  	display: inline-block;
+	}
+	.icon img{
+		width: calc(100% + 4px);
+		margin: -2px;
+	}
+	h1, h2{
+		margin:0;
+		font-weight: normal;
+	}
+	section.titles{
+		padding: 16px 32px;
+		padding-bottom: 26px;
+		line-height: 1;
+/*		text-align: center;*/
+/*		background-color: red;*/
+	}
+	nav{
+		display: flex;
+/*		column-gap: 0.4em;*/
+	}
+	:root{
+		--navLineHeight:1.1;
+	}
+	nav *{
+		font-size: 48px;
+		line-height: var(--navLineHeight);
+	}
+	nav ul{
+		margin-left: 0.5em;
+		padding-left: 0.5em;
+		width: fit-content;
+/*		border-left: 1px solid;*/
+	}
+/*	nav li{
+		position: relative;
+		
+	}
+	nav li:before{
+		content:"";
+		display: inline-block;
+		position: absolute;
+		width:calc(.5em - 0.1em);
+		height:1px;
+		top:calc(0.55em * var(--navLineHeight));
+		margin-right:0.1em;
+		background-color: black;
+		left:-.5em;
+	}
+	nav li:first-child:before{
+		content:"";
+		box-sizing: content-box;
+		display: inline-block;
+		position: absolute;
+		width:calc(1em - 0.2em);
+		height:calc(0.55em * var(--navLineHeight));
+		top:0;
+		left:-1em;
+		border-top: 1px solid white;
+		border-bottom: 1px solid black;
+		margin:0 0.1em;
+		background-color: white;
+	}
+	nav li:last-child:before{
+		content:"";
+		box-sizing: content-box;
+		display: inline-block;
+		position: absolute;
+		width:calc(.5em - 0.1em);
+		height:calc(0.45em * var(--navLineHeight));
+		top: calc(0.55em * var(--navLineHeight) + 1px);
+		margin-right:0.1em;
+		border-top: 1px solid black;
+		box-shadow: -1px 0 0px 0px #fff;
+		background-color: white;
+		left:calc(-.5em - 1px);*/
+	}
+</style>
+<body>
+	<section class="mac-os-window titles">
+		<nav>
+			<div class="level l1"><h1>Input Type</h1></div>
+			<div class="level l2">
+				<ul>
+					<li><h2>About</h2></li>
+					<li><h2>Information</h2></li>
+					<li><h2>Typefaces</h2></li>
+				</ul>
+			</div>
+		</nav>
+	</section>
+	<section class="mac-os-window">
+		<div class="tab">
+			<span><b>Camouflage</b></span>
+		</div>
+		<div id="camouflage" class="container">
+			<div class="instruction">
+				<ol>
+					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/ISO_7000_-_Ref-No_2831.svg"></div></li>
+					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/ISO_7000_-_Ref-No_3726.svg"></div></li>
+				</ol>
+			</div>
+			
+			<div id="camouflage-text" style="display:none;"><p>camouflage Testing does it work?</p></div>	
+			<div class="paragraph">
+			</div>
+
+			<div class="font-header"><b>Specification</b></div>
+			<div class="font-information">
+				<div>
+					<ul>
+						<li>Font Files:
+							<ol>
+								<li><span class="sans">camouflage.css</span></li>
+								<li><span class="sans">camouflage.js</span></li>
+							</ol>
+						</li>
+						<li>Font Format: <span class="sans">HTML</span>
+						</li>
+						<li>File Size Total: <span class="sans">478 KB</span>
+						</li>
+						<li>Glyph Size: ℮<span class="sans">64–128 Bytes</span> </li>
+						<li>Version: <span class="sans">1.0 (2023-03-24)</span>
+						</li>
+						<li><span class="sans"><a href="#">Github</a></span></li>
+						<li>© Input Type</li>
+					</ul>
+				</div>
+				<div>
+					<ul>
+						<li>Font Size Total: <span class="sans">500 KB</span></li>
+						<li>Glyph Size: <span class="sans">HTML</span></li>
+						<li>Language: <span class="sans">English</span></li>
+						<li>Character Sets: <span class="sans">Unicode Range</span> </li>
+						<li>License: <span class="sans">GPL</span></li>
+					</ul>
+				</div>
+				<div class="special">
+					<ul>
+						<li>Required Input to View: <span class="sans">Select</span></li>
+						<li>Viewing Demo: <span class="sans"><a href="#">Video</a></span></li>
+						<li>Input Type Features: <span class="sans">keyboard <code>command</code> + <code>A</code> to view everything.</span></li>
+						<li>Invisible from: <span class="sans">Google Cloud Vision OCR</span> </li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+
+	<section class="mac-os-window">
+		<div class="tab">
+			<span><b>Cousin</b></span>
+		</div>
+		<div id="cousin" class="container">
+			<div class="instruction">
+				<ol>
+					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/ISO_7000_-_Ref-No_2831.svg" /></div></li>
+					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/ISO_7000_-_Ref-No_3726.svg"></div></li>
+					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/ISO_7000_-_Ref-No_3894.svg"></div></li>
+				</ol>	
+			</div>
+			<div id="cousin-text" style="display:none;"><p>In defense of humanity and to confuse algorithm</p></div>
+			<div class="paragraph"></div>
+			<!-- <div class="font-header"><b>Technical</b></div> -->
+			<!-- <div class="font-information">
+				<div>
+					<ul>
+						<li>Font Files:
+							<ol>
+								<li><span class="sans">cousin.css</span></li>
+								<li><span class="sans">cousin.js</span></li>
+							</ol>
+						</li>
+						<li>Font Format: <span class="sans">HTML</span>
+						</li>
+						<li>File Size Total: <span class="sans">478 KB</span>
+						</li>
+						<li>Glyph Size: ℮<span class="sans">64–128 Bytes</span> </li>
+						<li>Version: <span class="sans">1.0 (2023-03-24)</span>
+						</li>
+						<li><a href="#">Github</a>
+						</li>
+						<li>© Input Type</li>
+					</ul>
+				</div>
+				<div>
+					<ul>
+						<li>Font Files:
+							<ol>
+								<li><span class="sans">cousin.css</span></li>
+								<li><span class="sans">cousin.js</span></li>
+							</ol>
+						</li>
+						<li>Font Format: <span class="sans">HTML</span>
+						</li>
+						<li>File Size Total: <span class="sans">478 KB</span>
+						</li>
+						<li>Glyph Size: ℮<span class="sans">64–128 Bytes</span> </li>
+						<li>Version: <span class="sans">1.0 (2023-03-24)</span>
+						</li>
+						<li><a href="#">Github</a>
+						</li>
+						<li>© Input Type</li>
+					</ul>
+				</div>
+			</div> -->
+			
+		</div>
+	</section>
+
+	<section class="mac-os-window">
+		<div class="tab">
+			<span><b>Camera</b></span>
+		</div>
+		<div id="camera" class="container">
+			<div class="instruction">
+				<ol>
+					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/ISO_7000_-_Ref-No_3753.svg"></div></li>
+					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/ISO_7000_-_Ref-No_3726.svg"></div></li>
+					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/ISO_7000_-_Ref-No_3705.svg"></div></li>
+				</ol>
+			</div>
+			<div id="camera-text" style="display:none;"><p>Adversarial Alphabets, Machine Invisible Typefaces</p></div>
+			<div class="paragraph"></div>
+			<!-- <div class="font-header"><b>Camera</b></div>
+			<div class="font-information">
+				<div>
+					<ul>
+						<li>Font Files:
+							<ol>
+								<li><span class="sans">camera.css</span></li>
+								<li><span class="sans">camera.js</span></li>
+							</ol>
+						</li>
+						<li>Font Format: <span class="sans">HTML</span>
+						</li>
+						<li>File Size Total: <span class="sans">478 KB</span>
+						</li>
+						<li>Glyph Size: ℮<span class="sans">64–128 Bytes</span> </li>
+						<li>Version: <span class="sans">1.0 (2023-03-24)</span>
+						</li>
+						<li><a href="#">Github</a>
+						</li>
+						<li>© Input Type</li>
+					</ul>
+				</div>
+				<div>
+					<ul>
+						<li>Font Files:
+							<ol>
+								<li><span class="sans">camera.css</span></li>
+								<li><span class="sans">camera.js</span></li>
+							</ol>
+						</li>
+						<li>Font Format: <span class="sans">HTML</span>
+						</li>
+						<li>File Size Total: <span class="sans">478 KB</span>
+						</li>
+						<li>Glyph Size: ℮<span class="sans">64–128 Bytes</span> </li>
+						<li>Version: <span class="sans">1.0 (2023-03-24)</span>
+						</li>
+						<li><a href="#">Github</a>
+						</li>
+						<li>© Input Type</li>
+					</ul>
+				</div>
+			</div> -->
+			
+		</div>
+	</section>
+	
+	<script type="text/javascript" src="fonts/camouflage/camouflage.js"></script>
+	<script type="text/javascript" src="fonts/cousin/cousin.js"></script>
+	<script type="text/javascript" src="fonts/camera/camera.js"></script>
+</body>
+</html>

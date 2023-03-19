@@ -1,0 +1,56 @@
+:root{
+	--fontSize: 120px;
+}
+.came-paragraph{
+
+}
+.came-letter{
+	font-family: Arial;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: top;
+	position:relative;
+	width:fit-content;
+	overflow:hidden;
+}
+.came-letter .width-set-text{
+	font-size: calc( var(--fontSize) * 1.4);
+	line-height: 1;
+	display:block;
+	width:fit-content;
+	white-space: pre-wrap;
+	visibility: hidden;
+}
+.came-letter video{
+	display: block;
+	height:calc( var(--fontSize) * 1.4);
+  	width:auto;
+}
+.came-letter .video1{
+	position:absolute;
+	top:0;
+	left: 50%;
+	-webkit-transform: translateX(-50%) scaleX(-1);
+	transform: translateX(-50%) scaleX(-1);
+}
+.came-letter .maskCont{
+	position:absolute;
+	top:0;
+	width:fit-content;
+	overflow:hidden;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.came-letter .mask{
+	-webkit-mask-size: auto calc( var(--fontSize) * 1.4);
+ 			mask-size: auto calc( var(--fontSize) * 1.4);
+ 	-webkit-mask-position: center;
+ 			mask-position: center; 
+ 	-webkit-mask-repeat:no-repeat;
+ 			mask-repeat:no-repeat;
+}
+.came-letter .video2{
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+}

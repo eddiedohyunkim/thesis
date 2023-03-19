@@ -1,0 +1,34 @@
+:root {
+  --cousinfontSize: 120px;
+  --cousinlineHeight: 1.2;
+}
+@font-face{
+  font-family: FreeSans;
+  src: url('../freeSans-20120503-woff/FreeSans.woff');
+}
+.cous-paragraph{
+  font-family: FreeSans;
+}
+.cous-letter{
+  display:inline-block;
+  cursor:default;
+  line-height: var(--cousinlineHeight);
+  width: fit-content;
+  height: calc(var(--cousinfontSize) * var(--cousinlineHeight));
+  padding: 0;
+  font-size: var(--cousinfontSize);
+  overflow-y: scroll;
+  vertical-align: top;
+}
+
+.cous-letter .options{
+  letter-spacing: 0;
+  display: block;
+  height: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+.space{
+  width: calc(var(--cousinfontSize) * 0.5);
+}
