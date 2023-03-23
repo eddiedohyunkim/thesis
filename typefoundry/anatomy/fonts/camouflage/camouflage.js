@@ -62,25 +62,29 @@ const camouflageFont = {
 }
 
 window.addEventListener("load", (event) => {
-		let camoGetText = document.querySelector('#camouflage-text');
+	let camoGetText = document.querySelectorAll('.camouflage-texts');
 	let getBrowser = browserNameIs(),
 				isItTouch = isTouchDevice();
 
-	if (camoGetText.hasChildNodes()) {
-  	for (let camoNode of camoGetText.children) {
-  		let camoChildrenText = camoNode.innerText;
-  		console.log(camoChildrenText);
+	for(let textbox of camoGetText){
+		if (textbox.hasChildNodes()) {
+			for (let camoNode of textbox.children) {
+				let camoChildrenText = camoNode.innerText;
+				console.log(camoChildrenText);
 
-  		let camoParagraph = document.createElement('div');
-			camoParagraph.className = 'camo-paragraph';
-			if(!isItTouch){ camoParagraph.classList.add('grayscaleFilter') };
-			document.querySelector('#camouflage .paragraph').appendChild(camoParagraph);
+				let textboxTo = textbox.getAttribute('to');
+				let camoParagraph = document.createElement('div');
+				camoParagraph.className = 'camo-paragraph';
+				if(!isItTouch){ camoParagraph.classList.add('grayscaleFilter') };
+				document.querySelector(textboxTo).appendChild(camoParagraph);
 
-			for(let letter of camoChildrenText){
-				createCamouflage(letter.toLowerCase(), camoParagraph, isItTouch, getBrowser);
+				for(let letter of camoChildrenText){
+					createCamouflage(letter.toLowerCase(), camoParagraph, isItTouch, getBrowser);
+				}
 			}
-  	}
+		}
 	}
+	
 
 	if(isItTouch){
 		const glyphSpan_list = document.querySelectorAll('span[gl]');

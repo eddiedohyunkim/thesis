@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+	body{
+  		margin: 0.5em 0.7em;
+  		font-family: Times;
+  		font-size: 48px;
+  	}
+  	ul{
+		list-style: none;
+		margin:0;
+		padding:0;
+ 	}
+	*, *:after, *:before{
+		box-sizing: border-box;
+	}
+	:root{
+		--treeLineHeight: 1.2;
+		--treeBranchWidth: 1px;
+	}
+
+/* Tree core styles */
+	.tree input {
+		display: none;
+	}
+	.tree input ~ ul { display: none; }
+	.tree input:checked ~ ul { display: block; }
+
+/* Tree rows */
+	.tree li {
+		line-height: var(--treeLineHeight);
+		position: relative;
+		padding-left: 1em;
+	}
+
+/* Tree labels */
+	.tree_label {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+	}
+	label.tree_label { cursor: pointer; }
+
+/* Tree expanded icon */
+	label.tree_label:before {
+		content: '+';
+		font-size: 0.8em;
+		font-family: Times New Roman, serif;
+		font-weight: bold;
+		position: absolute;
+		width: 0.8em;
+		height: 0.8em;
+		line-height: 0.8em;
+		right:-1em;
+		top:50%;
+		transform: translateY(-50%);
+		background-color: #bbb;
+		color: #fff;
+  		border-radius: 100%;
+  		text-align: center;
+	}
+	:checked ~ label.tree_label:before { content: '−'; }
+	label.tree_label:hover:before { background-color: #f00; }
+
+/* Tree branches */
+	.tree li:before {
+		content: "";
+  		position: absolute;
+  		display: block;
+  		top: 0;
+  		bottom: 0;
+  		left: 0.1em;
+  		width: 0;
+  		border-left: var(--treeBranchWidth) solid #000;
+	}
+	li:last-child:before {
+		border-left: 0;
+	}
+	.tree_label:after {
+		content: "";
+		position: absolute;
+		display: block;
+		top: 0;
+		left: calc( -1em + 0.1em);
+		height: calc( 0.6em * var(--treeLineHeight) );
+		width: 0.7em;
+		border-bottom: var(--treeBranchWidth) solid #000;
+		border-left: var(--treeBranchWidth) solid #000;
+  	}
+	.tree_custom {
+		display: block;
+		background: #eee;
+		padding: 1em;
+	}
+	</style>
+</head>
+<body>
+
+<div>Input Type</div>
+<ul class="tree">
+	<li>
+		<input type="checkbox" checked="checked" id="c1" />
+		<label class="tree_label" for="c1">Typefaces</label>
+		<ul>
+			<li>
+				<input type="checkbox" id="c2" />
+				<label for="c2" class="tree_label">Highlight</label>
+				<ul>
+					<li><span class="tree_label">Level 2</span></li>
+					<li><span class="tree_label">Level 2</span></li>
+				</ul>
+			</li>
+			<li>
+				<input type="checkbox" id="ca" />
+				<label for="ca" class="tree_label">Cousin</label>
+				<ul>
+					<li><span class="tree_label">Level 2</span></li>
+					<li><span class="tree_label">Level 2</span></li>
+				</ul>
+			</li>
+			<li>
+				<input type="checkbox" id="c3" />
+				<label for="c3" class="tree_label">Camera</label>
+				<ul>
+					<li><span class="tree_label">Level 2</span></li>
+					<li>
+						<input type="checkbox" id="c4" />
+						<label for="c4" class="tree_label"><span class="tree_custom">Specified tree item view</span></label>
+						<ul>
+							<li><span class="tree_label">Level 3</span></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+  
+	<li>
+		<input type="checkbox" id="c5" />
+		<label class="tree_label" for="c5">Information</label>
+		<ul>
+			<li>
+				<input type="checkbox" id="c6" />
+				<label for="c6" class="tree_label">Level 1</label>
+				<ul>
+					<li><span class="tree_label">Level 2</span></li>
+				</ul>
+			</li>
+
+			<li>
+				<input type="checkbox" id="c7" />
+				<label for="c7" class="tree_label">Level 1</label>
+				<ul>
+					<li><span class="tree_label">Level 2</span></li>
+					<li>
+						<input type="checkbox" id="c8" />
+						<label for="c8" class="tree_label">Level 2</label>
+						<ul>
+							<li><span class="tree_label">Level 3</span></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+
+</body>
+</html>

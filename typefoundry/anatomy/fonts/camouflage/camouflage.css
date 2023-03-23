@@ -1,5 +1,5 @@
 :root {
-  --camoFontSize: 100px;
+  --camoFontSize: 111px;
 }
 @font-face{
   font-family: FreeSans;
@@ -21,7 +21,7 @@
 	font-family: FreeSans;
 	vertical-align: top;
 	font-size: 1em;
-	line-height: 1.2;
+/*	line-height: 1.2;*/
 	display: inline-block;
 	width: fit-content;
 }

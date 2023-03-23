@@ -8,376 +8,377 @@
 <style type="text/css">
 	body{
 		margin: 0;
-		font-family: Times;
+		font-family: Times, Times New Roman, serif;
 		padding-bottom: 100px;
+		font-size: 16px;
+		line-height: 1.2;
 	}
 	.mac-os-window{
+/*		margin-bottom: 30px;*/
+/*		position: relative;*/
+/*		background-color: #ffffff;*/
 		box-sizing: border-box;
-		box-shadow: 0px 1.8px 1.1px rgba(0, 0, 0, 0.015),
-					0px 4px 2.5px rgba(0, 0, 0, 0.046),
-					0px 7px 4.3px rgba(0, 0, 0, 0.088),
-					0px 11.4px 7.2px rgba(0, 0, 0, 0.137),
-					0px 16.6px 12.1px rgba(0, 0, 0, 0.187),
-					0px 20px 20px rgba(0, 0, 0, 0.23);
-		border-bottom-left-radius: 10px 10px;
-		border-bottom-right-radius: 10px 10px;
+		box-shadow:
+  0px 4.4px 6.4px rgba(0, 0, 0, 0.081),
+  0px 9px 12.8px rgba(0, 0, 0, 0.179),
+  0px 14.3px 18.9px rgba(0, 0, 0, 0.254),
+  0px 20px 25px rgba(0, 0, 0, 0.3)
+;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
 		border-bottom:0.1px solid;
-/*		border-bottom:16px solid;*/
 	}
-	.container{
-		padding:0 32px 64px 32px;
-/*		outline:1px solid #00ff00;*/
+	/*.mac-os-window:after{
+		content:"";
+		display: block;
+		position: absolute;
+		width:100%;
+		height:40px;
+		bottom:-30px;
+		left:0;
+		z-index: -10000;
+		background-image: linear-gradient(
+    		rgba(0,0,0, 1) 0%,
+    		rgba(0,0,0, 0.3) 50%,
+    		rgba(0,0,0, 0.15) 65%,
+    		rgba(0,0,0, 0.075) 75.5%,
+    		rgba(0,0,0, 0.037) 82.85%,
+    		rgba(0,0,0, 0.019) 88%,
+    		rgba(0,0,0, 0) 100%
+  		);
+	}*/
+
+	section.titles{
+		padding: 1em 1.5em;
+		line-height: 1;
 	}
-	ul{
+	section{
+		padding:32px;
+/*		padding-top: 0;*/
+	}
+	.section_inspecting{
+		filter:grayscale(100%);
+	}
+	nav{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 32px;
+	}
+	nav div > ul{
+		padding:0;
+	}
+	ul, ol{
 		width:fit-content;
 	}
 	ul, ol{
 		margin:0;
-		line-height: 1;
-		padding-left: 1rem;
-		list-style: none;
+		padding-left: 1em;
 	}
+
+	.section-header{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 2em;
+		margin-bottom: 2.4em;
+	}
+
+	.font-specification{
+		margin-top: 4.8em;
+		margin-bottom: 2.4em;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 2em;
+	}
+	.font-specification-columns{
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 2em;
+	}
+
 	.sans{
 		font-family: Arial;
 		font-size: 0.9em;
 	}
 	.paragraph{
-/*		padding: 32px;*/
-/*		width:;*/
-		display: inline-block;
-/*		border-top: 1px dashed;*/
-		border: 1px solid #e0e0e0;
-/*		border-bottom: 1px dashed;*/
-/*		background-color: #eee;*/
-	border-radius: 4px;
-		padding:16px;
-/*		margin: auto;*/
 		margin-bottom: 32px;
-/*		outline:1px solid red;*/
-	}
-	.font-information{
-		display: flex;
-		column-gap: 2em;
-	}
-	.font-information div{
-		max-width:20em;
-	}
-	.tab{
-		padding:32px;
-		line-height: 1;
-/*		outline:1px solid blue;*/
-	}
-	.instruction{
-		background-color: #d6e7f2;
-/*		width:fit-content;*/
-		padding: 16px;
-/*		padding-top: 32px;*/
-		margin-bottom: 32px;
-	}
-	.instruction ol{
-		font-size: 48px;
-		margin:auto;
-		padding:0;
-		width:fit-content;
-	}
-	.instruction ol { 
-    	counter-reset: item;
-    	list-style-type: none;
-	}
-	.instruction li { 
-		display: inline-block; 
-		margin-right: 0.5em;
-	}
-	.instruction li:last-child{
-		margin-right: 0;
-	}
-	.instruction li:before {
-		display: block;
-	    content: counter(item); 
-	    counter-increment: item 
 	}
 
-	.icon {
-	  	height: 200px;
-	  	width: 200px;
-	  	line-height: 200px;
-	  	text-align: center;
-	  	margin-right: 2px;
-	  	overflow: hidden;
-	  	display: inline-block;
+	.instruction{
+		margin-bottom: 0.4em;
 	}
-	.icon img{
-		width: calc(100% + 4px);
-		margin: -2px;
+	.instruction ol, .instruction ul{
+		padding:0;
 	}
-	h1, h2{
-		margin:0;
-		font-weight: normal;
+	.instruction ol{
+		list-style-type: decimal;
+		list-style-position: inside;
 	}
-	section.titles{
-		padding: 16px 32px;
-		padding-bottom: 26px;
+	.instruction ul{
+/*		list-style-type: none;*/
+	}
+
+
+	:root {
+	    --red: rgb(255, 0, 0);
+	    --redAlpha: rgba(255, 0, 0, 0.2);
+	}
+	
+	/* Display-P3 color, when supported. */
+	@supports (color: color(display-p3 1 1 1)) {
+	    :root {
+	        --redAlpha: color(display-p3 0.94 0.07 0.07 / 0.25);
+	        --redAlpha2: color(display-p3 0.94 0.07 0.07 / 0.9);
+	        --red: color(display-p3 0.94 0.07 0.07);
+	    }
+	}
+
+	.inspect{
+		box-sizing: border-box;
+		position:fixed;
+		z-index: 100;
+		width:0px;
+		height:0px;
+		font-family: arial, sans-serif;
+		background-color: var(--redAlpha);
+		pointer-events: none;
+		transition: width 100ms, height 100ms;
+		 background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+PHBhdGggZD0nTS0xLDEgbDIsLTIgTTAsMTAgbDEwLC0xMCBNOSwxMSBsMiwtMicgc3Ryb2tlPScjZmYwMDAwMGEnIHN0cm9rZS13aWR0aD0nMycvPjwvc3ZnPg==");
+		 background-position: center;
+  		background-repeat: repeat;
+		background-size: 200px;
+	}
+	#inspectTL{
+		top:0;
+		left:0;
+		border-right:2px solid var(--red);
+	}
+	#inspectTR{
+		top:0;
+		right:0;
+		border-bottom:2px solid var(--red);
+	}
+	#inspectBL{
+		bottom:0;
+		left:0;
+		border-top:2px solid var(--red);
+	}
+	#inspectBR{
+		bottom:0;
+		right:0;
+		border-left:2px solid var(--red);
+	}
+	#inspectBL span{
+		position: absolute;
+		top:0;
+		right:0;
+	}
+	.inspect span{
+		display: inline-block;
 		line-height: 1;
-/*		text-align: center;*/
-/*		background-color: red;*/
+		padding:0.2em;
+		overflow-wrap: break-word;
+		font-size: 120px;
+		color:white;
+/*		background-color: var(--red);*/
+		background-color: var(--redAlpha2);
 	}
-	nav{
+	u{
+		text-decoration: solid underline currentColor 2px;
+		text-underline-offset: calc( 1ex * .2 );
+	}
+
+	#twoOptions{
 		display: flex;
-/*		column-gap: 0.4em;*/
+		position: fixed;
+		top:0;
+		right:0;
+		z-index: 10000;
+	}
+	#twoOptions button{	
+		display: inline-block;
+		background-color: #fff;
+		border:0.1px solid lightgray;
+		outline:0;
+
+		padding:0 0.5em;
+		border-radius: 0.5em;
+		height:2em;
+		line-height: 2em;
+	}
+
+	a{
+		color:#00f;
+	}
+
+
+
+
+	ul{
+		list-style: none;
+		margin:0;
+		padding:0;
+ 	}
+	*, *:after, *:before{
+		box-sizing: border-box;
 	}
 	:root{
-		--navLineHeight:1.1;
+		--treeLineHeight: 1.2;
+		--treeBranchWidth: .1px;
 	}
-	nav *{
-		font-size: 48px;
-		line-height: var(--navLineHeight);
+	ul {
+		padding-left: 1em;
 	}
-	nav ul{
-		margin-left: 0.5em;
-		padding-left: 0.5em;
-		width: fit-content;
-/*		border-left: 1px solid;*/
+	.tree * {
+
 	}
-/*	nav li{
+	.tree li {
+		line-height: var(--treeLineHeight);
 		position: relative;
-		
 	}
-	nav li:before{
-		content:"";
-		display: inline-block;
+
+/* Tree branches */
+	.tree li:before {
+		content: "";
+  		position: absolute;
+  		display: block;
+  		top: 0;
+  		bottom: 0;
+  		left: calc( -1em + 0.1em);
+  		width: 0;
+  		border-left: var(--treeBranchWidth) solid #000;
+	}
+	.tree li:last-child:before {
+		border-left: 0;
+	}
+	.tree li > span:before {
+		content: "";
 		position: absolute;
-		width:calc(.5em - 0.1em);
-		height:1px;
-		top:calc(0.55em * var(--navLineHeight));
-		margin-right:0.1em;
-		background-color: black;
-		left:-.5em;
-	}
-	nav li:first-child:before{
-		content:"";
-		box-sizing: content-box;
-		display: inline-block;
-		position: absolute;
-		width:calc(1em - 0.2em);
-		height:calc(0.55em * var(--navLineHeight));
-		top:0;
-		left:-1em;
-		border-top: 1px solid white;
-		border-bottom: 1px solid black;
-		margin:0 0.1em;
-		background-color: white;
-	}
-	nav li:last-child:before{
-		content:"";
-		box-sizing: content-box;
-		display: inline-block;
-		position: absolute;
-		width:calc(.5em - 0.1em);
-		height:calc(0.45em * var(--navLineHeight));
-		top: calc(0.55em * var(--navLineHeight) + 1px);
-		margin-right:0.1em;
-		border-top: 1px solid black;
-		box-shadow: -1px 0 0px 0px #fff;
-		background-color: white;
-		left:calc(-.5em - 1px);*/
-	}
+		display: block;
+		top: 0;
+		left: calc( -1em + 0.1em);
+		height: calc( 0.6em * var(--treeLineHeight) );
+		width: 0.7em;
+		border-bottom: var(--treeBranchWidth) solid #000;
+		border-left: var(--treeBranchWidth) solid #000;
+  	}
+
 </style>
 <body>
+	<div id="twoOptions">
+		<div id="humanCont">
+			<button id="human">Human</button>
+		</div>
+		<div id="machineCont">
+			<button id="machine">Machine</button>
+		</div>
+	</div>
 	<section class="mac-os-window titles">
 		<nav>
-			<div class="level l1"><h1>Input Type</h1></div>
-			<div class="level l2">
+			<!-- <div><b>Input Type</b></div> -->
+			<div><b>Script Type</b></div>
+			<div>
 				<ul>
-					<li><h2>About</h2></li>
-					<li><h2>Information</h2></li>
-					<li><h2>Typefaces</h2></li>
+					<li>Typefaces
+						<ul>
+							<li>Highlight</li>
+							<li>Cousin</li>
+							<li>Camera</li>
+						</ul>
+					</li>
+					<li>Information
+						<ul>
+							<li>About</li>
+							<li>Legal</li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</nav>
 	</section>
 	<section class="mac-os-window">
-		<div class="tab">
-			<span><b>Camouflage</b></span>
+		<div class="section-header">
+			<div>
+				<b>Highlight</b> / <span id="camo-fontSize">120px</span>
+			</div>
+			<div class="instruction">
+				<ol>
+					<!-- <li>Move cursor over text</li> -->
+					<li>Select text</li>
+				</ol>
+			</div>
 		</div>
+
 		<div id="camouflage" class="container">
-			<div class="instruction">
-				<ol>
-					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/ISO_7000_-_Ref-No_2831.svg"></div></li>
-					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/ISO_7000_-_Ref-No_3726.svg"></div></li>
-				</ol>
-			</div>
-			
-			<div id="camouflage-text" style="display:none;"><p>camouflage Testing does it work?</p></div>	
-			<div class="paragraph">
-			</div>
-
-			<div class="font-header"><b>Specification</b></div>
-			<div class="font-information">
-				<div>
-					<ul>
-						<li>Font Files:
-							<ol>
-								<li><span class="sans">camouflage.css</span></li>
-								<li><span class="sans">camouflage.js</span></li>
-							</ol>
-						</li>
-						<li>Font Format: <span class="sans">HTML</span>
-						</li>
-						<li>File Size Total: <span class="sans">478 KB</span>
-						</li>
-						<li>Glyph Size: ℮<span class="sans">64–128 Bytes</span> </li>
-						<li>Version: <span class="sans">1.0 (2023-03-24)</span>
-						</li>
-						<li><span class="sans"><a href="#">Github</a></span></li>
-						<li>© Input Type</li>
-					</ul>
-				</div>
-				<div>
-					<ul>
-						<li>Font Size Total: <span class="sans">500 KB</span></li>
-						<li>Glyph Size: <span class="sans">HTML</span></li>
-						<li>Language: <span class="sans">English</span></li>
-						<li>Character Sets: <span class="sans">Unicode Range</span> </li>
-						<li>License: <span class="sans">GPL</span></li>
-					</ul>
-				</div>
-				<div class="special">
-					<ul>
-						<li>Required Input to View: <span class="sans">Select</span></li>
-						<li>Viewing Demo: <span class="sans"><a href="#">Video</a></span></li>
-						<li>Input Type Features: <span class="sans">keyboard <code>command</code> + <code>A</code> to view everything.</span></li>
-						<li>Invisible from: <span class="sans">Google Cloud Vision OCR</span> </li>
-					</ul>
-				</div>
-			</div>
-			
+			<div id="camouflage-text" style="display:none;"><p>Typographical Defense Strategy against Algorithmic recognition</p></div>	
+			<div class="paragraph notranslate"></div>
 		</div>
+
+
 	</section>
 
+
+
+
 	<section class="mac-os-window">
-		<div class="tab">
-			<span><b>Cousin</b></span>
+
+		<div class="section-header">
+			<div>
+				<a href="#font2">Cousin</a> / <span id="cousin-fontSize">120px</span>
+			</div>
+			<div class="instruction">
+				<ol>
+					<li>Move cursor over text</li>
+					<li>Observe variations</li>
+				</ol>
+			</div>
 		</div>
+
 		<div id="cousin" class="container">
-			<div class="instruction">
-				<ol>
-					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/ISO_7000_-_Ref-No_2831.svg" /></div></li>
-					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/ISO_7000_-_Ref-No_3726.svg"></div></li>
-					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/ISO_7000_-_Ref-No_3894.svg"></div></li>
-				</ol>	
-			</div>
 			<div id="cousin-text" style="display:none;"><p>In defense of humanity and to confuse algorithm</p></div>
-			<div class="paragraph"></div>
-			<!-- <div class="font-header"><b>Technical</b></div> -->
-			<!-- <div class="font-information">
-				<div>
-					<ul>
-						<li>Font Files:
-							<ol>
-								<li><span class="sans">cousin.css</span></li>
-								<li><span class="sans">cousin.js</span></li>
-							</ol>
-						</li>
-						<li>Font Format: <span class="sans">HTML</span>
-						</li>
-						<li>File Size Total: <span class="sans">478 KB</span>
-						</li>
-						<li>Glyph Size: ℮<span class="sans">64–128 Bytes</span> </li>
-						<li>Version: <span class="sans">1.0 (2023-03-24)</span>
-						</li>
-						<li><a href="#">Github</a>
-						</li>
-						<li>© Input Type</li>
-					</ul>
-				</div>
-				<div>
-					<ul>
-						<li>Font Files:
-							<ol>
-								<li><span class="sans">cousin.css</span></li>
-								<li><span class="sans">cousin.js</span></li>
-							</ol>
-						</li>
-						<li>Font Format: <span class="sans">HTML</span>
-						</li>
-						<li>File Size Total: <span class="sans">478 KB</span>
-						</li>
-						<li>Glyph Size: ℮<span class="sans">64–128 Bytes</span> </li>
-						<li>Version: <span class="sans">1.0 (2023-03-24)</span>
-						</li>
-						<li><a href="#">Github</a>
-						</li>
-						<li>© Input Type</li>
-					</ul>
-				</div>
-			</div> -->
-			
+			<div class="paragraph notranslate"></div>
 		</div>
+
 	</section>
 
+
+
+
+
 	<section class="mac-os-window">
-		<div class="tab">
-			<span><b>Camera</b></span>
-		</div>
-		<div id="camera" class="container">
+
+		<div class="section-header">
+			<div>
+				<a href="#font3">Camera</a> / <span id="camera-fontSize">120px</span>
+			</div>
 			<div class="instruction">
 				<ol>
-					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/ISO_7000_-_Ref-No_3753.svg"></div></li>
-					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/1/15/ISO_7000_-_Ref-No_3726.svg"></div></li>
-					<li><div class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/ISO_7000_-_Ref-No_3705.svg"></div></li>
+					<li>Allow camera access</li>
+					<li>Move infront of camera</li>
 				</ol>
 			</div>
-			<div id="camera-text" style="display:none;"><p>Adversarial Alphabets, Machine Invisible Typefaces</p></div>
-			<div class="paragraph"></div>
-			<!-- <div class="font-header"><b>Camera</b></div>
-			<div class="font-information">
-				<div>
-					<ul>
-						<li>Font Files:
-							<ol>
-								<li><span class="sans">camera.css</span></li>
-								<li><span class="sans">camera.js</span></li>
-							</ol>
-						</li>
-						<li>Font Format: <span class="sans">HTML</span>
-						</li>
-						<li>File Size Total: <span class="sans">478 KB</span>
-						</li>
-						<li>Glyph Size: ℮<span class="sans">64–128 Bytes</span> </li>
-						<li>Version: <span class="sans">1.0 (2023-03-24)</span>
-						</li>
-						<li><a href="#">Github</a>
-						</li>
-						<li>© Input Type</li>
-					</ul>
-				</div>
-				<div>
-					<ul>
-						<li>Font Files:
-							<ol>
-								<li><span class="sans">camera.css</span></li>
-								<li><span class="sans">camera.js</span></li>
-							</ol>
-						</li>
-						<li>Font Format: <span class="sans">HTML</span>
-						</li>
-						<li>File Size Total: <span class="sans">478 KB</span>
-						</li>
-						<li>Glyph Size: ℮<span class="sans">64–128 Bytes</span> </li>
-						<li>Version: <span class="sans">1.0 (2023-03-24)</span>
-						</li>
-						<li><a href="#">Github</a>
-						</li>
-						<li>© Input Type</li>
-					</ul>
-				</div>
-			</div> -->
-			
 		</div>
+
+		<div id="camera" class="container">
+			<div id="camera-text" style="display:none;"><p>Adversarial Alphabets, Machine Invisible Typefaces</p></div>
+			<div class="paragraph notranslate"></div>			
+		</div>
+
 	</section>
+
+
+
+
+	<div class="inspectWrapper">
+		<div class="inspect" id="inspectTL"></div>
+		<div class="inspect" id="inspectTR"></div>
+		<div class="inspect" id="inspectBL"><span></span></div>
+		<div class="inspect" id="inspectBR"><span></span></div>
+	</div>
+	
 	
 	<script type="text/javascript" src="fonts/camouflage/camouflage.js"></script>
 	<script type="text/javascript" src="fonts/cousin/cousin.js"></script>
 	<script type="text/javascript" src="fonts/camera/camera.js"></script>
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
