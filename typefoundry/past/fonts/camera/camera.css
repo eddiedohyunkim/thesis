@@ -1,0 +1,61 @@
+:root{
+	--cameraFontSize: 120px;
+}
+.came-paragraph{
+	font-size: var(--cameraFontSize);
+}	
+.came-letter{
+	font-family: Arial;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: top;
+	position:relative;
+	width:fit-content;
+	overflow:hidden;
+	background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0d/ISO_7001_PI_BP_010.svg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: center;
+}
+.came-letter .width-set-text{
+	font-size: 1.4em;
+	line-height: 1;
+	display:block;
+	width:fit-content;
+	white-space: pre-wrap;
+	visibility: hidden;
+}
+.came-letter video{
+	display: block;
+	height:1.4em;
+  	width:auto;
+/*  	filter: blur(2px);*/
+}
+.came-letter .video1{
+	position:absolute;
+	top:0;
+	left: 50%;
+	-webkit-transform: translateX(-50%) scaleX(-1);
+	transform: translateX(-50%) scaleX(-1);
+}
+.came-letter .maskCont{
+	position:absolute;
+	top:0;
+	width:fit-content;
+	overflow:hidden;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.came-letter .mask{
+	-webkit-mask-size: auto 1.4em;
+ 			mask-size: auto 1.4em;
+ 	-webkit-mask-position: center;
+ 			mask-position: center; 
+ 	-webkit-mask-repeat:no-repeat;
+ 			mask-repeat:no-repeat;
+}
+.came-letter .video2{
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
