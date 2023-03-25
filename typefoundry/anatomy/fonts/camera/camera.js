@@ -10,9 +10,10 @@ let getText = document.querySelector('#camera-text');
   		for (let node of getText.children) {
   			let childrenText = node.innerText;
 	
+			let getTextTo = getText.getAttribute('to')
   			let paragraph = document.createElement('div');
 			paragraph.className = 'came-paragraph';
-			document.querySelector('#camera .paragraph').appendChild(paragraph);
+			document.querySelector(getTextTo).appendChild(paragraph);
 	
 	
 			for(let letter of childrenText){
@@ -67,14 +68,14 @@ const constraints = {
 	video:{
 		facingMode: "user", 
 		frameRate: { min: 20, ideal: 30, max: 60 },
-    	width: { ideal: 320, max: 320 }
+    	width: { ideal: 1080, max: 1080 }
     	// height: { exact: 360 }
 	}
 };
 const constraints2 = {
 	facingMode: "user", 
-	frameRate: {ideal: 3},
-	width: { ideal: 320, max: 320 }
+	frameRate: {ideal: 0.25},
+	width: { ideal: 1080, max: 1080 }
     // height: { exact: 360 }
 };
 

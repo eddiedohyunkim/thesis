@@ -1,6 +1,6 @@
 :root {
-  --camoFontSize: 111px;
-  --camoFontSize: 166.6px;
+  --camoFontSize: 81px;
+/*  --camoFontSize: 166.6px;*/
 }
 @font-face{
   font-family: FreeSans;

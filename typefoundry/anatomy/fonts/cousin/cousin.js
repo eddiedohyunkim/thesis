@@ -43,9 +43,10 @@ addEventListener("load", (event) => {
     for (let cousinNode of cousinGetText.children) {
       let cousinChildrenText = cousinNode.innerText;
 
+      let cousinGetTextTo = cousinGetText.getAttribute('to')
       let cousinParagraph = document.createElement('div');
       cousinParagraph.className = 'cous-paragraph';
-      document.querySelector('#cousin .paragraph').appendChild(cousinParagraph);
+      document.querySelector(cousinGetTextTo).appendChild(cousinParagraph);
 
       for(let letter of cousinChildrenText){
         createCousin(letter.toLowerCase(), cousinParagraph);
