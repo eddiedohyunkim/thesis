@@ -170,7 +170,8 @@ function createCamouflage(character, paragraph, isTouchScreen, browserIs, editor
 }
 
 function touchHighlight(character){
-	document.addEventListener('selectionchange', (character) => {
+	
+	document.addEventListener('selectionchange', () => {
   		const selection = window.getSelection();
   		const found = selection.containsNode(character);
   		if(found){
