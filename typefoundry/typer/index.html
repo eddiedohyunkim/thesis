@@ -27,13 +27,12 @@
 			font-size: 16px;
 			width:1px;
 			height:1px;
-			
-			border:0;
-			outline:0;
-			padding:0;
+
+/*			border:0;*/
+/*			outline:0;*/
+/*			padding:0;*/
 /*			pointer-events: none;*/
 /*			touch-action: none;*/
-/*			overflow: hidden;*/
 /*			background-color: transparent;*/
 /*			opacity: 0;*/
 			z-index: -1;
@@ -80,7 +79,8 @@
 					fakeInput.className = "fakeInput";
 					fakeInput.spellcheck = false;
 					// paragraph.appendChild(fakeInput);
-					paragraph.insertBefore(fakeInput, caret.nextElementSibling);
+					// paragraph.insertBefore(fakeInput, caret.nextElementSibling);
+					paragraph.insertBefore(fakeInput, caret);
 
 					paragraph.addEventListener('click', function(e){
 						paragraph.insertBefore(fakeInput, caret.nextElementSibling);
@@ -208,7 +208,7 @@
 
 		// Finally, if "chosenOne" is IN Editor
 		} else if( editor.contains( nearestNodeParent ) ){ 
-			chosenOne = getLetterElem(nearestNodeParent);
+			chosenOne = getLetterFrom(nearestNodeParent);
 			caretLeftOrRight(chosenOne, e)
 		}
 	}
@@ -216,16 +216,16 @@
 	function moveCaretFromClick(e){
 		let editor = e.currentTarget;
 		if(editor.contains(e.target) && e.target !== editor){
-			let letterClicked = getLetterElem(e.target, editor);
+			let letterClicked = getLetterFrom(e.target, editor);
 			caretLeftOrRight(letterClicked, e)
 		}
 	}
 
-	function getLetterElem(fromElem) {
-	    if (fromElem.classList.contains("camo-letter")) {
-	    	return fromElem;
+	function getLetterFrom(elem) {
+	    if (elem.classList.contains("camo-letter")) {
+	    	return elem;
 	    } else {
-	    	return getLetterElem(fromElem.parentElement);
+	    	return getLetterFrom(elem.parentElement);
 	    }
 	}
 
@@ -234,9 +234,9 @@
 		(leftRight === "Left") ? e.currentTarget.insertBefore(caret, letter) : e.currentTarget.insertBefore(caret, letter.nextElementSibling)
 	}
 
-	function leftOrRight(element, e){
-   		const clickTargetWidth = element.offsetWidth;
-   		const xCoordInClickTarget = e.clientX - element.getBoundingClientRect().left;
+	function leftOrRight(elem, e){
+   		const clickTargetWidth = elem.offsetWidth;
+   		const xCoordInClickTarget = e.clientX - elem.getBoundingClientRect().left;
    		return ( (clickTargetWidth / 2 > xCoordInClickTarget) ? 'Left' : 'Right');
 	}
 
