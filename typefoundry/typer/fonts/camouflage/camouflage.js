@@ -87,20 +87,27 @@ window.addEventListener("load", (event) => {
 	
 
 	if(isItTouch){
-		const glyphSpan_list = document.querySelectorAll('span[gl]');
-		const glyphSpan_array = [...glyphSpan_list];
-		glyphSpan_array.forEach(char => {
-			document.addEventListener('selectionchange', () => {
-  				const selection = window.getSelection();
-  				const found = selection.containsNode(char);
-  				if(found){
-  					char.classList.add("selected");
-  				}else{
-  					char.classList.remove("selected");
-  				}
-			});	
+
+		document.addEventListener('click', function(){
+			const glyphSpan_list = document.querySelectorAll('span[gl]');
+			const glyphSpan_array = [...glyphSpan_list];
+			glyphSpan_array.forEach(char => {
+
+				document.addEventListener('selectionchange', () => {
+  					const selection = window.getSelection();
+  					const found = selection.containsNode(char);
+  					if(found){
+  						char.classList.add("selected");
+  					}else{
+  						char.classList.remove("selected");
+  					}
+				});
+
+			});
 		});
+		
 	}
+	
 });
 
 
