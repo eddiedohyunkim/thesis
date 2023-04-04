@@ -66,36 +66,9 @@
 				caret.style.height = fontSize * 6 * 1.2 +"px";
 
 				paragraph.appendChild(caret);
-				
-				
+								
 				caretFunctions(paragraph);
 				typingFunctions(paragraph);
-
-
-				console.log(checkTouch());
-				// IF device is touch and dont have keyboard
-				if( checkTouch() ){
-					let fakeInput = document.createElement('input');
-					fakeInput.type = "text";
-					fakeInput.className = "fakeInput";
-					fakeInput.spellcheck = false;
-					// paragraph.appendChild(fakeInput);
-					// paragraph.insertBefore(fakeInput, caret.nextElementSibling);
-					// paragraph.insertBefore(fakeInput, caret);
-					caret.appendChild(fakeInput);
-
-					paragraph.addEventListener('click', function(e){
-						// paragraph.insertBefore(fakeInput, caret.nextElementSibling);
-						// paragraph.insertBefore(fakeInput, caret);
-						fakeInput.focus();
-						// if(fakeInput === document.activeElement){
-						// 	console.log("input is focused")
-						// }
-					})
-
-				}
-
-
 				
 			}
 		});
@@ -107,11 +80,14 @@
 		window.addEventListener('keydown', function(e){
 			singleKeys(e, inEditable);
 			multipleKeys(e, inEditable);
+
+			// caret.scrollIntoView()
 		});
 
 		window.addEventListener('keyup', function(e){
 			multipleKeys(e, inEditable);
 		})
+
 
 	}
 
@@ -121,7 +97,22 @@
 		inEditable.addEventListener("click", caretPosFromClick, false);
 		
 
+
 		// moveCaretFromArrowKey(inEditable)
+
+		// IF device is touch and dont have keyboard
+		if( touchScreen() ){
+			let fakeInput = document.createElement('input');
+			fakeInput.type = "text";
+			fakeInput.className = "fakeInput";
+			fakeInput.spellcheck = false;
+			caret.appendChild(fakeInput);
+
+			inEditable.addEventListener('click', function(){
+				fakeInput.focus();
+			})
+
+		}
 
 	}
 
@@ -244,7 +235,7 @@
 	}
 
 
-	function checkTouch() {
+	function touchScreen() {
   		return (('ontouchstart' in window) ||
      		(navigator.maxTouchPoints > 0) ||
      		(navigator.msMaxTouchPoints > 0));
