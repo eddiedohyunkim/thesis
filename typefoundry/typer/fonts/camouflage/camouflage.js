@@ -88,7 +88,7 @@ window.addEventListener("load", (event) => {
 
 	if(isItTouch){
 
-		document.addEventListener('click', function(){
+		document.addEventListener('touchstart', function(){
 			const glyphSpan_list = document.querySelectorAll('span[gl]');
 			const glyphSpan_array = [...glyphSpan_list];
 			glyphSpan_array.forEach(char => {
@@ -107,7 +107,7 @@ window.addEventListener("load", (event) => {
 		});
 		
 	}
-	
+
 });
 
 
