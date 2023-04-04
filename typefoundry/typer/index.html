@@ -27,8 +27,10 @@
 			font-size: 16px;
 			width:1px;
 			height:1px;
-/*			border:0;*/
-/*			outline:0;*/
+			
+			border:0;
+			outline:0;
+			padding:0;
 /*			pointer-events: none;*/
 /*			touch-action: none;*/
 /*			overflow: hidden;*/
@@ -142,19 +144,21 @@
     	map[e.key] = e.type == 'keydown';
     	console.log(map)
     	if(map['Meta'] && map['Backspace']){
-    		let allTyped = getChildren(editor.firstChild, caret);
+    		let allTyped = getChildrenFrom(editor.firstChild, caret);
     		for(let each of allTyped)
     			each.remove()
     		map = {};
     	}
 	}
 
-	function getChildren(n, skipMe){
+	function getChildrenFrom(n, until){
     	let childrenList = [];
-    	for ( ; n; n = n.nextSibling ) 
-    	   if ( n.nodeType == 1 && n != skipMe)
-    	      childrenList.push( n );        
-    	return childrenList;
+    	for ( ; n; n = n.nextElementSibling ){
+    		childrenList.push( n );
+    		if(n.nextElementSibling === until){
+    			return childrenList;
+    		}
+    	} 
 	};
 
 
