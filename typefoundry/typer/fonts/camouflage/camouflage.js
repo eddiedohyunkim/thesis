@@ -86,27 +86,27 @@ window.addEventListener("load", (event) => {
 	}
 	
 
-	if(isItTouch){
+	// if(isItTouch){
 
-		document.addEventListener('touchstart', function(){
-			const glyphSpan_list = document.querySelectorAll('span[gl]');
-			const glyphSpan_array = [...glyphSpan_list];
-			glyphSpan_array.forEach(char => {
+	// 	document.addEventListener('touchstart', function(){
+	// 		let glyphSpan_list = document.querySelectorAll('span[gl]');
+	// 		let glyphSpan_array = [...glyphSpan_list];
+	// 		glyphSpan_array.forEach(char => {
 
-				document.addEventListener('selectionchange', () => {
-  					const selection = window.getSelection();
-  					const found = selection.containsNode(char);
-  					if(found){
-  						char.classList.add("selected");
-  					}else{
-  						char.classList.remove("selected");
-  					}
-				});
+	// 			document.addEventListener('selectionchange', () => {
+  // 					const selection = window.getSelection();
+  // 					const found = selection.containsNode(char);
+  // 					if(found){
+  // 						char.classList.add("selected");
+  // 					}else{
+  // 						char.classList.remove("selected");
+  // 					}
+	// 			});
 
-			});
-		});
+	// 		});
+	// 	});
 		
-	}
+	// }
 
 });
 
@@ -139,7 +139,10 @@ function createCamouflage(character, paragraph, isTouchScreen, browserIs, editor
 				char.innerHTML = camouflageFont[character][j][k]+`<i>:</i>`;
 				row.appendChild(char);
 	
-				if(glyphsOption.includes(camouflageFont[character][j][k]))char.setAttribute('gl','');
+				if( glyphsOption.includes(camouflageFont[character][j][k]) ){
+					touchHighlight(char)
+					// char.setAttribute('gl','');
+				}
 			}
 			// row.style.width = (row.offsetWidth+1) - (camouflageFont[character][j].length*pushIt*1.15)+'px';
 
@@ -166,13 +169,20 @@ function createCamouflage(character, paragraph, isTouchScreen, browserIs, editor
 
 }
 
+function touchHighlight(character){
+	document.addEventListener('selectionchange', (character) => {
+  		const selection = window.getSelection();
+  		const found = selection.containsNode(character);
+  		if(found){
+  			character.classList.add("selected");
+  		}else{
+  			character.classList.remove("selected");
+  		}
+	});
+}
+
 function characterCategory(character){
 	return( (character == " ") ? "s" : "c")
-	// if(character == " "){
-	// 	return "s"
-	// }else{
-	// 	return "c"
-	// }
 }
 
 function browserNameIs(){
