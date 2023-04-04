@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>typer</title>
+	<style type="text/css">
+		#editor{
+			font-size: 16px;
+		} 
+		#caret {
+			display: inline-block;
+			vertical-align: top;
+			margin:0;
+			padding:0;
+			width:1px;
+			height:1.2em;
+			background-color: #000;
+			animation: blinker 1s step-end infinite; 
+		}
+		@keyframes blinker {  50% { opacity: 0; }}
+	</style>
+</head>
+<body>
+	<!-- <div id="editor" class="grayscaleFilter"> -->
+		<!-- <div id="caret"></div> -->
+	<!-- </div> -->
+
+	<div class="camouflage-text paragraph" editable style="filter:brightness(1.0);">
+		A system of cells interlinked within cells interlinked within cells interlinked within one stem.
+	</div>
+
+<script type="text/javascript" src="fonts/camouflage/camouflage.js"></script>
+<script type="text/javascript">
+
+	let map = {};
+	window.addEventListener('load', function(){
+
+		let paragraphs_list = document.querySelectorAll('.camouflage-text');
+		var paragraphs_array = [...paragraphs_list];
+		paragraphs_array.forEach(paragraph => {
+			if(paragraph.hasAttribute('editable')){
+
+				let caret = document.createElement('div');
+				caret.id = 'caret';
+				
+				let fontSize = window.getComputedStyle(paragraph).getPropertyValue("font-size");
+				fontSize = parseInt(fontSize);
+				caret.style.height = fontSize * 6 * 1.2 +"px";
+
+				paragraph.appendChild(caret);
+
+
+				console.log(checkTouch());
+
+				// IF device is touch and dont have keyboard
+				if( !checkTouch() ){
+					let fakeInput = document.createElement('input');
+					fakeInput.type="text";
+					paragraph.appendChild(fakeInput);
+
+					paragraph.addEventListener('click', function(e){
+						console.log('touched')
+						fakeInput.focus();
+					})
+
+				}
+
+				caretFunctions(paragraph);
+				typingFunctions(paragraph);
+				
+			}
+		});
+	})
+
+	// GROUP OF TYPING FUNCTIONS
+	function typingFunctions(inEditable){
+
+		window.addEventListener('keydown', function(e){
+			singleKeys(e, inEditable);
+			multipleKeys(e, inEditable);
+		});
+
+		window.addEventListener('keyup', function(e){
+			multipleKeys(e, inEditable);
+		})
+
+	}
+
+	// GROUP OF CARET FUNCTIONS
+	function caretFunctions(inEditable){
+
+		inEditable.addEventListener("click", caretPosFromClick, false);
+		
+
+		// moveCaretFromArrowKey(inEditable)
+
+	}
+
+
+	// TYPING FUNCTIONS
+
+	function singleKeys(e, editor){
+
+		if (e.key.length == 1 && (map['Meta'] == false || !('Meta' in map)) ){
+
+			keyLowerCased = e.key.toLowerCase();
+			console.log(keyLowerCased);
+			createCamouflage(keyLowerCased, editor, isItTouch, getBrowser, editor)
+
+		}else if(e.key == 'Backspace'){
+			if(caret.previousElementSibling){
+				caret.previousElementSibling.remove()	
+			}
+    	}
+	}
+
+	function multipleKeys(e, editor){
+    	map[e.key] = e.type == 'keydown';
+    	console.log(map)
+    	if(map['Meta'] && map['Backspace']){
+    		let allTyped = getChildren(editor.firstChild, caret);
+    		for(let each of allTyped)
+    			each.remove()
+    		map = {};
+    	}
+	}
+
+	function getChildren(n, skipMe){
+    	let childrenList = [];
+    	for ( ; n; n = n.nextSibling ) 
+    	   if ( n.nodeType == 1 && n != skipMe)
+    	      childrenList.push( n );        
+    	return childrenList;
+	};
+
+
+
+	// CARET FUNCTIONS
+
+	function caretPosFromClick(e) {
+		let range, nearestNode, nearestNodeParent;
+		let editor = e.currentTarget;
+		let caret = editor.querySelector('#caret');
+		let chosenOne;
+
+		if (document.caretPositionFromPoint) {
+			range = document.caretPositionFromPoint(e.clientX, e.clientY);
+			nearestNode = range.offsetNode;
+			nearestNodeParent = range.offsetNode.parentElement;
+		} else if (document.caretRangeFromPoint) {
+			// Use WebKit-proprietary fallback method
+			range = document.caretRangeFromPoint(e.clientX, e.clientY);
+			nearestNode = range.startContainer;
+			nearestNodeParent = range.commonAncestorContainer.parentElement;
+		} else {
+			// If nothing above works fallback method
+			moveCaretFromClick(e)
+		}
+
+
+		// if "chosenOne" is Editor
+		if( nearestNode === editor ){ 
+			let allLetters = editor.querySelectorAll('*[class*="letter"]');
+			chosenOne = allLetters[allLetters.length-1];
+			caretLeftOrRight(chosenOne, e)
+
+		// if "chosenOne"s parent is Editor ("chosenOne" is "Letter")
+		}else if( nearestNodeParent === editor ){ 
+
+			// if "chosenOne" is Caret
+			if(nearestNode === caret){ 
+				chosenOne = nearestNode.previousElementSibling;
+				caretLeftOrRight(chosenOne, e)
+
+			// if "chosenOne" is NOT Caret ("chosenOne" is "Letter")	
+			}else{ 
+				chosenOne = nearestNode;
+				caretLeftOrRight(chosenOne, e)
+			}
+
+		// Finally, if "chosenOne" is IN Editor
+		} else if( editor.contains( nearestNodeParent ) ){ 
+			chosenOne = getLetterElem(nearestNodeParent);
+			caretLeftOrRight(chosenOne, e)
+		}
+	}
+
+	function moveCaretFromClick(e){
+		let editor = e.currentTarget;
+		if(editor.contains(e.target) && e.target !== editor){
+			let letterClicked = getLetterElem(e.target, editor);
+			caretLeftOrRight(letterClicked, e)
+		}
+	}
+
+	function getLetterElem(fromElem) {
+	    if (fromElem.classList.contains("camo-letter")) {
+	    	return fromElem;
+	    } else {
+	    	return getLetterElem(fromElem.parentElement);
+	    }
+	}
+
+	function caretLeftOrRight(letter, e){
+		let leftRight = leftOrRight(letter, e);
+		(leftRight === "Left") ? e.currentTarget.insertBefore(caret, letter) : e.currentTarget.insertBefore(caret, letter.nextElementSibling)
+	}
+
+	function leftOrRight(element, e){
+   		const clickTargetWidth = element.offsetWidth;
+   		const xCoordInClickTarget = e.clientX - element.getBoundingClientRect().left;
+   		return ( (clickTargetWidth / 2 > xCoordInClickTarget) ? 'Left' : 'Right');
+	}
+
+
+	function checkTouch() {
+  		return (('ontouchstart' in window) ||
+     		(navigator.maxTouchPoints > 0) ||
+     		(navigator.msMaxTouchPoints > 0));
+	}
+
+</script>
+</body>
+</html>
