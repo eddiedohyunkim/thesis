@@ -40,7 +40,7 @@
 		<!-- <div id="caret"></div> -->
 	<!-- </div> -->
 
-	<div class="camouflage-text paragraph" editable style="filter:brightness(1.0);">
+	<div class="camouflage-text paragraph" editable>
 		A system of cells interlinked within cells interlinked within cells interlinked within one stem.
 	</div>
 
@@ -124,7 +124,7 @@
 
 			keyLowerCased = e.key.toLowerCase();
 			console.log(keyLowerCased);
-			createCamouflage(keyLowerCased, editor, checkTouch, getBrowser, editor)
+			createCamouflage(keyLowerCased, editor, isItTouch, getBrowser, editor)
 
 		}else if(e.key == 'Backspace'){
 			if(caret.previousElementSibling){
