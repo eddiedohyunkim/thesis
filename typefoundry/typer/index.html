@@ -81,11 +81,12 @@
 					fakeInput.spellcheck = false;
 					// paragraph.appendChild(fakeInput);
 					// paragraph.insertBefore(fakeInput, caret.nextElementSibling);
-					paragraph.insertBefore(fakeInput, caret);
+					// paragraph.insertBefore(fakeInput, caret);
+					caret.appendChild(fakeInput);
 
 					paragraph.addEventListener('click', function(e){
 						// paragraph.insertBefore(fakeInput, caret.nextElementSibling);
-						paragraph.insertBefore(fakeInput, caret);
+						// paragraph.insertBefore(fakeInput, caret);
 						fakeInput.focus();
 						// if(fakeInput === document.activeElement){
 						// 	console.log("input is focused")
@@ -218,7 +219,7 @@
 	function moveCaretFromClick(e){
 		let editor = e.currentTarget;
 		if(editor.contains(e.target) && e.target !== editor){
-			let letterClicked = getLetterFrom(e.target, editor);
+			let letterClicked = getLetterFrom(e.target);
 			caretLeftOrRight(letterClicked, e)
 		}
 	}
