@@ -26,15 +26,15 @@
 			height:100%;*/
 /*			width:1px;*/
 /*			height:1px;*/
-			border:0;
-			outline:0;
+/*			border:0;*/
+/*			outline:0;*/
 			pointer-events: none;
 			touch-action: none;
 /*			overflow: hidden;*/
 /*			background-color: transparent;*/
 /*			opacity: 0;*/
 			font-size: 16px;
-/*			z-index: -1;*/
+			z-index: -1;
 		}
 		@keyframes blinker {  50% { opacity: 0; }}
 	</style>
@@ -64,19 +64,23 @@
 				caret.style.height = fontSize * 6 * 1.2 +"px";
 
 				paragraph.appendChild(caret);
+				
+				
+				caretFunctions(paragraph);
+				typingFunctions(paragraph);
 
 
 				console.log(checkTouch());
-
 				// IF device is touch and dont have keyboard
 				if( checkTouch() ){
 					let fakeInput = document.createElement('input');
 					fakeInput.type="text";
 					fakeInput.className = "fakeInput"
-					caret.appendChild(fakeInput);
+					// paragraph.appendChild(fakeInput);
+					paragraph.insertBefore(fakeInput, caret.nextElementSibling);
 
 					paragraph.addEventListener('click', function(e){
-						console.log('touched')
+						paragraph.insertBefore(fakeInput, caret.nextElementSibling);
 						fakeInput.focus();
 						if(fakeInput === document.activeElement){
 							console.log("input is focused")
@@ -85,8 +89,7 @@
 
 				}
 
-				caretFunctions(paragraph);
-				typingFunctions(paragraph);
+
 				
 			}
 		});
