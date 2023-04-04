@@ -19,14 +19,14 @@
 			animation: blinker 1s step-end infinite; 
 		}
 		.fakeInput{
-			/*position:absolute;
-			top:0;
+			position:absolute;
+			/*top:0;
 			left:0;
 			width:100%;
 			height:100%;*/
 			font-size: 16px;
-			width:1em;
-			height:1em;
+			width:1px;
+			height:1px;
 /*			border:0;*/
 /*			outline:0;*/
 /*			pointer-events: none;*/
@@ -34,14 +34,14 @@
 /*			overflow: hidden;*/
 /*			background-color: transparent;*/
 /*			opacity: 0;*/
-/*			z-index: -1;*/
+			z-index: -1;
 		}
 		@keyframes blinker {  50% { opacity: 0; }}
 	</style>
 </head>
 <body>
 
-	<div class="camouflage-text paragraph" editable>
+	<div class="camouflage-text paragraph" editable style="filter:brightness(1.0);"> 
 		A system of cells interlinked within cells interlinked within cells interlinked within one stem.
 	</div>
 
@@ -72,10 +72,11 @@
 
 				console.log(checkTouch());
 				// IF device is touch and dont have keyboard
-				if( checkTouch() ){
+				if( !checkTouch() ){
 					let fakeInput = document.createElement('input');
 					fakeInput.type="text";
-					fakeInput.className = "fakeInput"
+					fakeInput.className = "fakeInput";
+					fakeInput.spellcheck = false;
 					// paragraph.appendChild(fakeInput);
 					paragraph.insertBefore(fakeInput, caret.nextElementSibling);
 
