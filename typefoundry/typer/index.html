@@ -54,7 +54,7 @@
 				console.log(checkTouch());
 
 				// IF device is touch and dont have keyboard
-				if( !checkTouch() ){
+				if( checkTouch() ){
 					let fakeInput = document.createElement('input');
 					fakeInput.type="text";
 					paragraph.appendChild(fakeInput);
