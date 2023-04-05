@@ -88,7 +88,6 @@
 			multipleKeys(e, inEditable);
 		})
 
-
 	}
 
 	// GROUP OF CARET FUNCTIONS
@@ -96,8 +95,6 @@
 
 		inEditable.addEventListener("click", caretPosFromClick, false);
 		
-
-
 		// moveCaretFromArrowKey(inEditable)
 
 		// IF device is touch and dont have keyboard
@@ -110,7 +107,17 @@
 
 			inEditable.addEventListener('click', function(){
 				fakeInput.focus();
-			})
+			});
+
+			inEditable.addEventListener('touchstart', function(){
+				fakeInput.blur();
+			});
+			inEditable.addEventListener('touchmove', function(){
+				fakeInput.blur();
+			});
+			inEditable.addEventListener('touchend', function(){
+				fakeInput.focus();
+			});
 
 		}
 
