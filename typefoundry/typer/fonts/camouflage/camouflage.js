@@ -166,7 +166,14 @@ function createCamouflage(character, paragraph, isTouchScreen, browserIs, editor
 
 		}
 	}
+	letter.style.lineHeight = roundLineHeight(letter)+'px';
+}
 
+function roundLineHeight(element){
+	let curLineHeight = window.getComputedStyle(element).getPropertyValue("line-height");
+	curLineHeight = parseInt(curLineHeight);
+	curLineHeight = Math.round(curLineHeight);
+	return curLineHeight;
 }
 
 function touchHighlight(character){

@@ -1,5 +1,5 @@
 :root {
-  --camoFontSize: 61px;
+  --camoFontSize: 140px;
 /*  --camoFontSize: 166.6px;*/
 }
 @font-face{
@@ -7,7 +7,7 @@
   src: url('freeSans-20120503-woff/FreeSans.woff');
 }
 .camo-paragraph{
-	font-size: calc(var(--camoFontSize) / 6);
+	font-size: var(--camoFontSize);
 /*	display: flex;*/
 /*	flex-flow: row wrap;*/
 		-webkit-touch-callout: none;
@@ -18,19 +18,18 @@
 		          user-select: none;                     
 }
 .grayscaleFilter{
-		filter: brightness(0);	
+	filter: brightness(0);
 }
 .camo-letter{
 	font-family: FreeSans;
 	vertical-align: top;
-	font-size: 1em;
-/*	line-height: 1.2;*/
+	font-size: calc(1em / 6);
+	line-height: 1.2;
 	display: inline-block;
 	width: fit-content;
 }
 .camo-letter .row{
   display: flex;
-
 }
 .camo-letter span{
   position: relative;

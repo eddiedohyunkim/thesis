@@ -1,5 +1,5 @@
 :root{
-	--cameraFontSize: 160px;
+	--cameraFontSize: 60px;
 }
 .came-paragraph{
 	font-size: var(--cameraFontSize);
@@ -12,10 +12,12 @@
 	position:relative;
 	width:fit-content;
 	overflow:hidden;
-	background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/0d/ISO_7001_PI_BP_010.svg');
+	background-color: black;
+	background-image: url("allow-camera-access.svg");
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	background-position: center;
+	background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
 }
 .came-letter .width-set-text{
 	font-size: 1.4em;
@@ -37,6 +39,7 @@
 	left: 50%;
 	-webkit-transform: translateX(-50%) scale(1.6) scaleX(-1);
 	transform: translateX(-50%) scale(1.6) scaleX(-1);
+/*	background-color: red;*/
 }
 .came-letter .maskCont{
 	position:absolute;
