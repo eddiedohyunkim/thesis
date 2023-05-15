@@ -1,0 +1,104 @@
+:root {
+  --fontSize: 16px;
+}
+html * {
+	-webkit-text-size-adjust: 100%; 
+	   -moz-text-size-adjust: 100%; 
+	    -ms-text-size-adjust: 100%; 
+	        text-size-adjust: 100%
+}
+@font-face{
+  font-family: FreeSans;
+  src: url('../../ASSETS/freeSans-20120503-woff/FreeSans.woff');
+}
+body{
+	margin:8px;
+}
+
+.paragraph, p{
+	font-family: FreeSans;
+	font-size: 16.3px;
+}
+
+@media (hover:none){
+	.paragraph, .console{
+		color:#b1cdfa;
+	}
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	.paragraph, p{
+			font-size: 11px;
+			line-height: 1.2;
+	}
+}
+
+@media only screen and (max-device-width: 480px) {
+	.paragraph, p{
+		font-size: 6px;
+		line-height: 1.2;
+	}
+}
+
+.grayscaleFilter{
+		filter: brightness(0);	
+}
+.letter{
+	display: inline-block;
+	width: fit-content;
+}
+.row{
+  display: flex;
+}
+span{
+  position: relative;
+}
+.paragraph, .console{
+		-webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		   -khtml-user-select: none;
+		     -moz-user-select: none;
+		      -ms-user-select: none;
+		          user-select: none;
+		                            
+}
+span{
+		-webkit-touch-callout: text;
+		  -webkit-user-select: text;
+		   -khtml-user-select: text;
+		     -moz-user-select: text;
+		      -ms-user-select: text;
+		          user-select: text;                         
+}
+i{
+	font-style: normal;
+	color:#ffffff00;
+}
+.selected{
+	background-color: #c2d7fb;
+}
+
+
+.console{
+	font-family: sans-serif;
+	font-size: 16px;
+	margin:0;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	.console{
+		font-size: 11px;
+	}
+}
+@media only screen and (max-device-width: 480px) {
+	.console{
+		font-size: 6px;
+	}
+}
+.console i{
+	font-style: italic;
+	color:inherit;
+}
+a{
+	text-decoration: none;
+	color:inherit;
+}
