@@ -61,52 +61,68 @@ const camouflageFont = {
 	'-': [`@W%%`,`%—%W`,`a;:|lij;|:|lg`,`%@W%`,`%W—%`,`%mMDN`]
 }
 
+let getBrowser, isItTouch;
 window.addEventListener("load", (event) => {
-		let camoGetText = document.querySelector('#camouflage-text');
-	let getBrowser = browserNameIs(),
-				isItTouch = isTouchDevice();
+	let camoTexts = document.querySelectorAll('.camouflage-text');
+	getBrowser = browserNameIs();
+	isItTouch = isTouchDevice();
 
-	if (camoGetText.hasChildNodes()) {
-  	for (let camoNode of camoGetText.children) {
-  		let camoChildrenText = camoNode.innerText;
-  		console.log(camoChildrenText);
+	for(let camoText of camoTexts){
+		camoText.classList.add('camo-paragraph');
+		if(!isItTouch){ camoText.classList.add('grayscaleFilter') };
+		let text = '';
+		text += camoText.textContent;	
+		text = text.trim()
+		text = text.toLowerCase();
+		camoText.innerHTML ="";
+		console.log(text)
 
-  		let camoParagraph = document.createElement('div');
-			camoParagraph.className = 'camo-paragraph';
-			if(!isItTouch){ camoParagraph.classList.add('grayscaleFilter') };
-			document.querySelector('#camouflage .paragraph').appendChild(camoParagraph);
-
-			for(let letter of camoChildrenText){
-				createCamouflage(letter.toLowerCase(), camoParagraph, isItTouch, getBrowser);
+		for (let each of text) {
+			if(camouflageFont[each]){
+				// console.log(each);
+				createCamouflage(each, camoText, isItTouch, getBrowser);	
 			}
-  	}
+		}
 	}
+	
 
-	if(isItTouch){
-		const glyphSpan_list = document.querySelectorAll('span[gl]');
-		const glyphSpan_array = [...glyphSpan_list];
-		glyphSpan_array.forEach(char => {
-			document.addEventListener('selectionchange', () => {
-  				const selection = window.getSelection();
-  				const found = selection.containsNode(char);
-  				if(found){
-  					char.classList.add("selected");
-  				}else{
-  					char.classList.remove("selected");
-  				}
-			});	
-		});
-	}
+	// if(isItTouch){
+
+	// 	document.addEventListener('touchstart', function(){
+	// 		let glyphSpan_list = document.querySelectorAll('span[gl]');
+	// 		let glyphSpan_array = [...glyphSpan_list];
+	// 		glyphSpan_array.forEach(char => {
+
+	// 			document.addEventListener('selectionchange', () => {
+  // 					const selection = window.getSelection();
+  // 					const found = selection.containsNode(char);
+  // 					if(found){
+  // 						char.classList.add("selected");
+  // 					}else{
+  // 						char.classList.remove("selected");
+  // 					}
+	// 			});
+
+	// 		});
+	// 	});
+		
+	// }
+
 });
 
 
 
 
-function createCamouflage(character, paragraph, isTouchScreen, browserIs, pushIt){
-
+function createCamouflage(character, paragraph, isTouchScreen, browserIs, editor){
 	let letter = document.createElement('div');
 	letter.className = 'camo-letter';
-	paragraph.appendChild(letter);
+	letter.classList.add( characterCategory(character) )
+	if(editor){
+		let caret = editor.querySelector('#caret');
+		editor.insertBefore(letter, caret);
+	}else{
+		paragraph.appendChild(letter);	
+	}
 	
 	let glyphsOption = `ilj:;|.'`
 
@@ -123,7 +139,10 @@ function createCamouflage(character, paragraph, isTouchScreen, browserIs, pushIt
 				char.innerHTML = camouflageFont[character][j][k]+`<i>:</i>`;
 				row.appendChild(char);
 	
-				if(glyphsOption.includes(camouflageFont[character][j][k]))char.setAttribute('gl','');
+				if( glyphsOption.includes(camouflageFont[character][j][k]) ){
+					touchHighlight(char)
+					// char.setAttribute('gl','');
+				}
 			}
 			// row.style.width = (row.offsetWidth+1) - (camouflageFont[character][j].length*pushIt*1.15)+'px';
 
@@ -147,7 +166,31 @@ function createCamouflage(character, paragraph, isTouchScreen, browserIs, pushIt
 
 		}
 	}
+	letter.style.lineHeight = roundLineHeight(letter)+'px';
+}
 
+function roundLineHeight(element){
+	let curLineHeight = window.getComputedStyle(element).getPropertyValue("line-height");
+	curLineHeight = parseInt(curLineHeight);
+	curLineHeight = Math.round(curLineHeight);
+	return curLineHeight;
+}
+
+function touchHighlight(character){
+	
+	document.addEventListener('selectionchange', () => {
+  		const selection = window.getSelection();
+  		const found = selection.containsNode(character);
+  		if(found){
+  			character.classList.add("selected");
+  		}else{
+  			character.classList.remove("selected");
+  		}
+	});
+}
+
+function characterCategory(character){
+	return( (character == " ") ? "s" : "c")
 }
 
 function browserNameIs(){
